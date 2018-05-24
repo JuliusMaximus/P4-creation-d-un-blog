@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* style général de la page d'accueil */
+body {
+  margin: 0 auto;
+  padding: 0; }
+
+figure {
+  margin: 0 !important; }
+
+/*----------------------------------------------------------------------
+----------------------------------HEADER--------------------------------
+----------------------------------------------------------------------*/
+header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative; }
+
+header img {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative; }
+
+header figcaption {
+  position: absolute;
+  bottom: 0;
+  color: #fff !important;
+  padding: 2rem; }
+
+header h1 {
+  color: #fff !important;
+  font-weight: bold !important;
+  padding-left: 1rem !important; }
+
+.lg_screen {
+  display: none; }
+
+/* NAV */
+nav {
+  position: absolute !important;
+  top: 0 !important; }
+
+.fixed-top {
+  position: fixed !important;
+  right: auto !important;
+  left: auto !important;
+  width: 80%; }
+
+.navbar-toggler {
+  border-color: #fff !important; }
+
+.nav-link {
+  color: #fff !important;
+  font-size: 1.5rem !important;
+  transition: all 1s ease; }
+
+.nav-link:hover {
+  border-bottom: .1rem solid #fff !important;
+  padding: .4rem 1rem !important; }
+
+.nav-item {
+  padding: 0 1rem !important; }
+
+/*----------------------------------------------------------------------
+-----------------------------MEDIAS QUERIES-----------------------------
+----------------------------------------------------------------------*/
+@media all and (min-width: 769px) {
+  .lg_screen {
+    display: block; }
+
+  .small_screen {
+    display: none; }
+
+  header figcaption {
+    top: 15rem;
+    left: 10rem;
+    padding: 2rem;
+    width: 50%; }
+
+  header figcaption h2 {
+    font-size: 2rem !important; }
+
+  header figcaption p {
+    font-size: 1.5rem; } }
+
+/*# sourceMappingURL=index.css.map */
