@@ -113,13 +113,16 @@ nav.scrolling { /* la class .scrolling est ajouter via le fichier js */
 #paysage {
 	display: table;
 	@include bg-responsive("../img/panoramic.jpg");
+	background-attachment: fixed;
 }
 
 .blockquote-footer {
 	color:  $header-text-color !important;
 }
 
-
+#test {
+	height: 30rem;
+}
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
 ----------------------------------------------------------------*/

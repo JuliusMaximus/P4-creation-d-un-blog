@@ -89,10 +89,14 @@ nav.scrolling {
   background: url("../img/panoramic.jpg") no-repeat center center;
   background-size: cover;
   color: #fff;
-  text-shadow: 1px 1px 10px #000; }
+  text-shadow: 1px 1px 10px #000;
+  background-attachment: fixed; }
 
 .blockquote-footer {
   color: #fff !important; }
+
+#test {
+  height: 30rem; }
 
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
