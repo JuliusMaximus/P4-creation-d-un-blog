@@ -1,13 +1,17 @@
 /*----------------------------------------------------------------
 --------------------------General style---------------------------
 ----------------------------------------------------------------*/
-body, html, header, h1 {
+body, html, header, h1, footer {
   margin: 0;
   padding: 0; }
 
 header, body, html, .wrapper, #paysage {
   width: 100%;
   height: 100%; }
+
+ul li {
+  list-style-type: none;
+  display: inline-flex; }
 
 /*----------------------------------------------------------------
 ------------------------------header------------------------------
@@ -36,7 +40,7 @@ header {
 .drop-down {
   /* fleche du bas */
   position: absolute;
-  bottom: 1rem;
+  bottom: 2.7rem;
   left: 49%; }
   .drop-down a {
     color: #fff; }
@@ -91,8 +95,36 @@ nav.scrolling {
   color: #fff !important; }
 
 /*----------------------------------------------------------------
+------------------------------footer------------------------------
+----------------------------------------------------------------*/
+footer {
+  text-align: center; }
+
+footer div.row:last-child {
+  background-color: #469CD6 !important;
+  color: #fff !important; }
+
+#footer_links ul li:after {
+  content: "/";
+  padding-left: .4em; }
+
+#footer_links ul li:last-child:after {
+  content: ""; }
+
+footer .row {
+  margin-right: 0 !important; }
+
+/*----------------------------------------------------------------
 --------------------------Media queries---------------------------
 ----------------------------------------------------------------*/
+@media all and (max-width: 576px) {
+  footer {
+    text-align: center !important; }
+    footer ul {
+      padding-left: 1rem !important; }
+    footer p small {
+      padding-left: 0 !important;
+      margin-left: 0 !important; } }
 @media all and (min-width: 993px) {
   .navbar, .card-body {
     padding-left: 10rem !important;
@@ -110,6 +142,9 @@ nav.scrolling {
     line-height: 2rem !important; }
     .navbar-brand small {
       font-size: 1rem;
-      padding-left: 2.8rem; } }
+      padding-left: 2.8rem; }
+
+  footer p small {
+    padding-left: 2rem !important; } }
 
 /*# sourceMappingURL=index.css.map */
