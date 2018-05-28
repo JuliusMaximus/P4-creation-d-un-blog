@@ -1,0 +1,13 @@
+
+
+@mixin container-padding {
+	padding-left: 10rem !important;
+	padding-right: 10rem !important;
+};
+
+@mixin bg-responsive($url) {
+	background: url($url) no-repeat center center;
+	background-size: cover;
+	color: $header-text-color;
+	text-shadow: 1px 1px 10px #000;
+}

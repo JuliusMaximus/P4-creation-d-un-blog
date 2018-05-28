@@ -5,7 +5,7 @@ body, html, header, h1 {
   margin: 0;
   padding: 0; }
 
-header, body, html, .wrapper {
+header, body, html, .wrapper, #paysage {
   width: 100%;
   height: 100%; }
 
@@ -34,14 +34,18 @@ header {
     font-size: .85rem; }
 
 .drop-down {
+  /* fleche du bas */
   position: absolute;
   bottom: 1rem;
   left: 49%; }
+  .drop-down a {
+    color: #fff; }
 
 /*----------nav---------*/
-.fixed-top {
-  right: auto !important;
-  left: auto !important; }
+.navbar-brand {
+  font-weight: bold; }
+  .navbar-brand small {
+    font-weight: normal; }
 
 .navbar-toggler {
   border-color: #fff !important; }
@@ -59,17 +63,53 @@ header {
   padding: 0 1rem !important; }
 
 .navbar-nav {
-  background: rgba(73, 73, 73, 0.7); }
+  background: rgba(32, 60, 86, 0.9); }
 
 nav.scrolling {
-  background-color: rgba(73, 73, 73, 0.7); }
+  /* la class .scrolling est ajouter via le fichier js */
+  background-color: rgba(70, 156, 214, 0.9); }
+
+/*----------------------------------------------------------------
+------------------------------Section-----------------------------
+----------------------------------------------------------------*/
+.card {
+  border-radius: 0 !important; }
+
+.card-header, .card-footer {
+  background-color: #469CD6 !important;
+  color: #fff !important;
+  border-radius: 0 !important; }
+
+#paysage {
+  display: table;
+  background: url("../img/panoramic.jpg") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 1px 1px 10px #000; }
+
+.blockquote-footer {
+  color: #fff !important; }
 
 /*----------------------------------------------------------------
 --------------------------Media queries---------------------------
 ----------------------------------------------------------------*/
 @media all and (min-width: 993px) {
+  .navbar, .card-body {
+    padding-left: 10rem !important;
+    padding-right: 10rem !important; }
+
   .navbar-nav {
     background: none;
-    margin-right: 0 !important; } }
+    margin-right: 0 !important; }
+
+  .nav-link {
+    font-size: 1.2rem !important; }
+
+  .navbar-brand {
+    font-size: 1.8rem !important;
+    line-height: 2rem !important; }
+    .navbar-brand small {
+      font-size: 1rem;
+      padding-left: 2.8rem; } }
 
 /*# sourceMappingURL=index.css.map */
