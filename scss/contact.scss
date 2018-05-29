@@ -14,7 +14,7 @@ body, html, header, h1, footer {
 	padding: 0;
 }
 
-header, body, html, .wrapper {
+body, html {
 	width: 100%;
 	height: 100%;
 }
@@ -25,42 +25,16 @@ ul li {
 }
 
 
-/*----------------------------------------------------------------
-------------------------------header------------------------------
-----------------------------------------------------------------*/
-
-
 header {
-	position: relative;
-	@include bg-responsive("../img/black-and-white-blur.jpg");
-}
-
-.wrapper {
-	display: table;
-}
-
-.content {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	h1 {
-		font-size: 3rem;
-	}
-	p {
-		font-size: .85rem;
+	width: 100%;
+	height: 6rem;
+	background-color: $color-principal !important;
+	.row {
+		margin-right: 0;
+		margin-left: 0;
 	}
 }
 
-.drop-down { /* fleche du bas */
-	position: absolute;
-	bottom: 2.7rem;
-	left: 49%;
-	a {
-		color: $header-text-color;
-	}
-}
 
 
 /*----------nav---------*/
@@ -91,13 +65,14 @@ header {
 	background: rgba(32,60,86,0.9);
 }
 
-nav.scrolling { /* la class .scrolling est ajouter via le fichier js */
-    background-color: rgba(70,156,214,0.9);
+
+/*--------------form---------------*/
+
+form {
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
-section {
-	padding: 4rem 1rem;
-}
 
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
@@ -142,7 +117,7 @@ footer .row {
 
 @media all and (min-width: 993px) {
 	
-	.navbar, section {
+	.navbar, form {
 		@include container-padding;
 	}
 

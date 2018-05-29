@@ -5,7 +5,7 @@ body, html, header, h1, footer {
   margin: 0;
   padding: 0; }
 
-header, body, html, .wrapper {
+body, html {
   width: 100%;
   height: 100%; }
 
@@ -13,37 +13,13 @@ ul li {
   list-style-type: none;
   display: inline-flex; }
 
-/*----------------------------------------------------------------
-------------------------------header------------------------------
-----------------------------------------------------------------*/
 header {
-  position: relative;
-  background: url("../img/black-and-white-blur.jpg") no-repeat center center;
-  background-size: cover;
-  color: #fff;
-  text-shadow: 1px 1px 10px #000; }
-
-.wrapper {
-  display: table; }
-
-.content {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-  .content h1 {
-    font-size: 3rem; }
-  .content p {
-    font-size: .85rem; }
-
-.drop-down {
-  /* fleche du bas */
-  position: absolute;
-  bottom: 2.7rem;
-  left: 49%; }
-  .drop-down a {
-    color: #fff; }
+  width: 100%;
+  height: 6rem;
+  background-color: #469CD6 !important; }
+  header .row {
+    margin-right: 0;
+    margin-left: 0; }
 
 /*----------nav---------*/
 .navbar-brand {
@@ -69,12 +45,10 @@ header {
 .navbar-nav {
   background: rgba(32, 60, 86, 0.9); }
 
-nav.scrolling {
-  /* la class .scrolling est ajouter via le fichier js */
-  background-color: rgba(70, 156, 214, 0.9); }
-
-section {
-  padding: 4rem 1rem; }
+/*--------------form---------------*/
+form {
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
@@ -105,7 +79,7 @@ footer .row {
       padding-left: 0 !important;
       margin-left: 0 !important; } }
 @media all and (min-width: 993px) {
-  .navbar, section {
+  .navbar, form {
     padding-left: 10rem !important;
     padding-right: 10rem !important; }
 
@@ -126,4 +100,4 @@ footer .row {
   footer p small {
     padding-left: 2rem !important; } }
 
-/*# sourceMappingURL=about.css.map */
+/*# sourceMappingURL=contact.css.map */
