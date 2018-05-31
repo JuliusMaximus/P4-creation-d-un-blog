@@ -1,15 +1,15 @@
 
-<!-- footer à inclure dans toutes les pages -->
+
 
 <footer>
 		<div class="row" id="footer_links">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex justify-content-center mt-5 pt-4">
 				<ul>
-					<li><a href="index.html">Accueil</a></li>
-					<li><a href="about.html">Qui suis-je ?</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="about.php">Qui suis-je ?</a></li>
+					<li><a href="blog.php">Blog</a></li>
+					<li><a href="contact.php">Contact</a></li>
 					<li><a href="#">Mentions légales</a></li>
 				</ul>
 			</div>
