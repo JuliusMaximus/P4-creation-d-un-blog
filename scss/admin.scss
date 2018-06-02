@@ -1,0 +1,51 @@
+@import "variables";
+
+
+
+/*--------------style general--------------*/
+
+body, html, .wrapper, .card{
+	margin: 0;
+	padding: 0;
+	background-color: #eaeaea !important;
+	height: 100%;
+	width: 100%;
+
+}
+
+.wrapper {
+	display: table;
+}
+
+.content {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.card {
+	background: $color-principal !important;
+	color: $header-text-color !important;
+}
+
+.card-title {
+	background:  $header-text-color !important;
+	color: #000;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	border-radius: 5px;
+
+}
+
+.card-text span {
+	color: #c60909;
+}
+
+@media all and (min-width: 576px) {
+	.card {
+		width: 20rem !important;
+		margin: auto;
+	}
+}
