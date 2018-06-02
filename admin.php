@@ -24,14 +24,14 @@
 					<div class="content">
 						<div class="card">
 			  				<div class="card-body">
-							    <h5 class="card-title">Connection Administration</h5>
+							    <h5 class="card-title">Connexion Administration</h5>
 							    <h6 class="card-subtitle mb-2 text-muted">Bonjour Jean !</h6>
 							    <p class="card-text">Veuillez entrer le mot de passe pour accéder à la page d'administration :</p>
 							    <form action="admin.php" method="post">
 
 						            <p>
 
-						            <input type="password" name="mot_de_passe" />
+						            <input type="password" class="form-control" name="mot_de_passe" placeholder="Mot de passe..."/>
 
 						            <input type="submit" value="Valider" />
 
@@ -47,7 +47,7 @@
 			}
 		
 
-			elseif (isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] != "test") 
+			elseif (isset($_POST['mot_de_passe']) AND htmlspecialchars($_POST['mot_de_passe']) != "test") 
 			{
 				?>
 				
@@ -55,14 +55,14 @@
 					<div class="content">
 						<div class="card">
 			  				<div class="card-body">
-							    <h5 class="card-title">Connection Administration</h5>
+							    <h5 class="card-title">Connexion Administration</h5>
 							    <h6 class="card-subtitle mb-2 text-muted">Bonjour Jean !</h6>
 							    <p class="card-text"><span>Le mot de passe saisi est incorrect !</span><br>Veuillez entrer à nouveau le mot de passe pour vous connecter :</p>
 							    <form action="admin.php" method="post">
 
 						            <p>
 
-						            <input type="password" name="mot_de_passe" />
+						            <input type="password" class="form-control" name="mot_de_passe" placeholder="Mot de passe..."/>
 
 						            <input type="submit" value="Valider" />
 
@@ -80,11 +80,54 @@
 
 			// Le mot de passe a été envoyé et il est bon
 
-			else
+			elseif (isset($_POST['mot_de_passe']) AND htmlspecialchars($_POST['mot_de_passe']) == "test") 
 
 			{
 			?>
-			    <p>Le mot de passe a été envoyé et il est bon</p>
+			    <div class="container">
+					<div class="row admin_header">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-8">
+									<h3 class="text-center">
+										Bienvenue dans votre espace d'administration !
+									</h3>
+								</div>
+								<div class="col-md-4 d-flex justify-content-end">
+									 
+									<form action="admin.php" method="post">
+
+							            <input type="submit" value="deconnexion" />
+
+							        </form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 admin_nav">
+							<div class="list-group mb-4">
+							  <button type="button" class="list-group-item list-group-item-warning">
+							    Publications
+							  </button>
+							  <button type="button" class="list-group-item list-group-item-action">Liste</button>
+							  <button type="button" class="list-group-item list-group-item-action">Créer</button>
+							</div>
+							<div class="list-group">
+							  <button type="button" class="list-group-item list-group-item-warning">
+							    Commentaires
+							  </button>
+							  <button type="button" class="list-group-item list-group-item-action">Liste</button>
+							  <button type="button" class="list-group-item list-group-item-action">
+							  	Modération
+							  	<span class="badge badge-primary badge-pill">14</span>
+							  </button>
+							</div>
+						</div>
+						<div class="col-md-9 admin_content">
+						</div>
+					</div>
+				</div>
 			<?php
 			}
 		?>

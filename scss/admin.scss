@@ -13,6 +13,8 @@ body, html, .wrapper, .card{
 
 }
 
+/*------------login---------------*/
+
 .wrapper {
 	display: table;
 }
@@ -42,6 +44,38 @@ body, html, .wrapper, .card{
 .card-text span {
 	color: #c60909;
 }
+
+input[type="submit"] {
+	margin-top: 2rem;
+}
+
+.card-subtitle {
+	padding: 1em;
+}
+
+
+/*-------------page administration-----------------*/
+
+.admin_header {
+	background: $color-principal;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	color: $header-text-color !important;
+	border-radius: 3px;
+	margin: 1rem;
+}
+
+.admin_nav {
+	padding-left: 0 !important;
+}
+.admin_content {
+	border: 1px solid #000;
+	background: #fff;
+}
+
+
+
+/*--------------------medias queries---------------------*/
 
 @media all and (min-width: 576px) {
 	.card {
