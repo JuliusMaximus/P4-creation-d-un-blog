@@ -47,7 +47,8 @@ input[type="submit"] {
   margin: 1rem; }
 
 .admin_nav {
-  padding-left: 0 !important; }
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
 
 .admin_content {
   border: 1px solid #000;
