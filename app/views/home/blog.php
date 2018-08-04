@@ -28,11 +28,11 @@
 
     </header>
     <div class="container">
-      <div class="row">
+      <div class="row mt-4">
         <?php
         foreach( $data['projects'] as $key => $project ) :
         ?>
-        <div class="col-md-6">
+        <div class="mt-4 p-4">
           <article>
             <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> Le <time><?= $project['created_at'] ?></time></span></h1>  
             <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
