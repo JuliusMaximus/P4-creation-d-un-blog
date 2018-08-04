@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex justify-content-center mt-4">
-				<p><small>&copy; 2018 - Tout droits réservés  /  SIte réalisé par Julien Weck <img src="img/logo-juju-small.png" alt="logo julien weck"></small></p>
+				<p><small>&copy; 2018 - Tout droits réservés  /  SIte réalisé par Julien Weck <img src="/img/logo-juju-small.png" alt="logo julien weck"></small></p>
 			</div>
 		</div>
 	</footer>

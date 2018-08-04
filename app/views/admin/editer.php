@@ -22,12 +22,16 @@
       <?php if ( isset( $data['erreur']['title'] ) ) : ?>
         <div class="alert alert-danger"><?= $data['erreur']['title'] ?></div>
       <?php endif; ?>
+      <?php if ( isset( $data['erreur']['resume'] ) ) : ?>
+        <div class="alert alert-danger"><?= $data['erreur']['resume'] ?></div>
+      <?php endif; ?>
       <?php if ( isset( $data['erreur']['body'] ) ) : ?>
         <div class="alert alert-danger"><?= $data['erreur']['body'] ?></div>
       <?php endif; ?>
       <form action="" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
         <input type="text" name="title" class="form-control" placeholder="Nom du projet" value="<?= $data['project']['title'] ?>">
-        <textarea name="body" class="form-control" placeholder="Texte du projet"><?= $data['project']['body'] ?></textarea>
+        <textarea name="resume" class="form-control" placeholder="resumé de la publication"><?= $data['project']['resume'] ?></textarea>
+        <textarea name="body" class="form-control" placeholder="Texte de la publication"><?= $data['project']['body'] ?></textarea>
         <input type="submit" class="btn btn-success" value="Éditer">
       </form>
     </div>

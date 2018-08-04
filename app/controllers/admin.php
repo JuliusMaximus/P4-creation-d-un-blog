@@ -15,11 +15,8 @@ class Admin extends Controller {
         $erreur['title'] = 'Titre obligatoire';
       }
 
-      if ( empty( $url ) ) {
-        $erreur['url'] = 'Lien obligatoire';
-      }
-      elseif ( !filter_var( $url, FILTER_VALIDATE_URL ) ) {
-        $erreur['url'] = 'Lien erroné';
+      if ( empty( $resume ) ) {
+        $erreur['resume'] = 'Texte obligatoire';
       }
 
       if ( empty( $body ) ) {
@@ -43,9 +40,9 @@ class Admin extends Controller {
         $name = bin2hex( random_bytes( 8 ) ) . '.' . $extension;
 
         if ( move_uploaded_file( $_FILES['picture']['tmp_name'], ROOT . 'public/img/imgArticles/' . $name ) ) {
-          DB::insert( 'insert into project (title, url, body, picture) values (:title, :url, :body, :picture)', [
+          DB::insert( 'insert into project (title, resume, body, picture) values (:title, :resume, :body, :picture)', [
             'title'   => htmlspecialchars( $title ),
-            'url'     => htmlspecialchars( $url ),
+            'resume'     => htmlspecialchars( $resume ),
             'body'    => htmlspecialchars( $body ),
             'picture' => $name
           ] );
@@ -141,13 +138,18 @@ class Admin extends Controller {
         $erreur['title'] = 'Titre obligatoire';
       }
 
+      if ( empty( $resume ) ) {
+        $erreur['resume'] = 'Texte obligatoire';
+      }
+
       if ( empty( $body ) ) {
         $erreur['body'] = 'Texte obligatoire';
       }
 
       if ( !$erreur ) {
-        DB::update( 'update project set title = :title, body = :body where id = :id', [
+        DB::update( 'update project set title = :title, resume = :resume, body = :body where id = :id', [
           'title' => htmlspecialchars( $title ),
+          'resume' => htmlspecialchars( $resume ),
           'body'  => htmlspecialchars( $body ),
           'id'    => $id
         ] );

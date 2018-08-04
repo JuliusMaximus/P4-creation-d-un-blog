@@ -1,8 +1,10 @@
 <?php
 class Read extends Controller {
-  public function index() {
-  	$id = isset($_GET['id']) ? $_GET['id'] : NULL;
-  	$projects = DB::select( 'select * from project where id = ?', [$id]);
+  public function blog() { 
+    $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $parseUrl = parse_url($url);
+
+  	$projects = DB::select( 'select * from project where id = ?', [htmlspecialchars($parseUrl['query'])]);
 
      foreach ( $projects as $key => $project ) {
       $date = date_create( $project['created_at'] );

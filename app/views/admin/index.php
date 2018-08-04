@@ -24,8 +24,8 @@
           <?php if ( isset( $data['erreur']['title'] ) ) : ?>
             <div class="alert alert-danger"><?= $data['erreur']['title'] ?></div>
           <?php endif; ?>
-          <?php if ( isset( $data['erreur']['url'] ) ) : ?>
-            <div class="alert alert-danger"><?= $data['erreur']['url'] ?></div>
+          <?php if ( isset( $data['erreur']['resume'] ) ) : ?>
+            <div class="alert alert-danger"><?= $data['erreur']['resume'] ?></div>
           <?php endif; ?>
           <?php if ( isset( $data['erreur']['body'] ) ) : ?>
             <div class="alert alert-danger"><?= $data['erreur']['body'] ?></div>
@@ -34,9 +34,9 @@
             <div class="alert alert-danger"><?= $data['erreur']['picture'] ?></div>
           <?php endif; ?>
           <form action="/admin" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
-            <input type="text" name="title" class="form-control" placeholder="Nom du projet" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
-            <input type="url" name="url" class="form-control" placeholder="Lien vers le projet" value="<?php if ( isset( $_POST['url'] ) ) echo $_POST['url'] ?>">
-            <textarea name="body" class="form-control" placeholder="Texte du projet"><?php if ( isset( $_POST['body'] ) ) echo $_POST['body'] ?></textarea>
+            <input type="text" name="title" class="form-control" placeholder="Nom de la publication" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
+            <textarea name="resume" class="form-control" placeholder="Résumé de la publication"><?php if ( isset( $_POST['resume'] ) ) echo $_POST['resume'] ?></textarea>
+            <textarea name="body" class="form-control" placeholder="Texte de la publication"><?php if ( isset( $_POST['body'] ) ) echo $_POST['body'] ?></textarea>
             <input type="file" name="picture" class="form-control-file">
             <input type="submit" class="btn btn-success" value="Publier">
           </form>
@@ -45,7 +45,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th>ID</th>
                 <th>Titre</th>
                 <th>Éditer</th>
                 <th>Supprimer</th>

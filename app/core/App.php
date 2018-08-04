@@ -7,6 +7,7 @@ class App {
   public function __construct() {
     $route = $this->getParams();
 
+
     if ( file_exists( ROOT . 'app/controllers/' . $route[0] . '.php' ) ) {
       $this->controller = $route[0];
       unset ( $route[0] );

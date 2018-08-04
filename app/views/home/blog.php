@@ -39,7 +39,7 @@
               <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
             </a>
             <p class="lead text-justify"><?= $project['body'] ?></p>
-            <a href="read/?id=<?= $project['id']; ?>" class="btn btn-primary float-right mt-3"><i class="fas fa-book-open"></i> Lire</a>
+            <a href="/read/blog?<?= $project['id']; ?>" class="btn btn-primary float-right mt-3"><i class="fas fa-book-open"></i> Lire</a>
           </article>
         </div>
         <?php
