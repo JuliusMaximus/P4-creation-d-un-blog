@@ -41,9 +41,9 @@ class Admin extends Controller {
 
         if ( move_uploaded_file( $_FILES['picture']['tmp_name'], ROOT . 'public/img/imgArticles/' . $name ) ) {
           DB::insert( 'insert into project (title, resume, body, picture) values (:title, :resume, :body, :picture)', [
-            'title'   => htmlspecialchars( $title ),
-            'resume'     => htmlspecialchars( $resume ),
-            'body'    => htmlspecialchars( $body ),
+            'title'   => $title,
+            'resume'  => $resume,
+            'body'    => $body,
             'picture' => $name
           ] );
 
@@ -148,10 +148,10 @@ class Admin extends Controller {
 
       if ( !$erreur ) {
         DB::update( 'update project set title = :title, resume = :resume, body = :body where id = :id', [
-          'title' => htmlspecialchars( $title ),
-          'resume' => htmlspecialchars( $resume ),
-          'body'  => htmlspecialchars( $body ),
-          'id'    => $id
+          'title'  => $title,
+          'resume' => $resume,
+          'body'   => $body,
+          'id'     => $id
         ] );
 
         header( 'Location: /admin/editer/' . $id );

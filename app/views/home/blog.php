@@ -34,11 +34,9 @@
         ?>
         <div class="col-md-6">
           <article>
-            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
-            <a href="<?= $project['url'] ?>" target="_blank">
-              <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
-            </a>
-            <p class="lead text-justify"><?= $project['body'] ?></p>
+            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> Le <time><?= $project['created_at'] ?></time></span></h1>  
+            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
+            <p class="lead text-justify"><?= $project['resume'] ?></p>
             <a href="/read/blog?<?= $project['id']; ?>" class="btn btn-primary float-right mt-3"><i class="fas fa-book-open"></i> Lire</a>
           </article>
         </div>

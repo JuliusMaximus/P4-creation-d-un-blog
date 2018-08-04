@@ -27,11 +27,8 @@
 		        ?>
 		        <div class="col-md-6">
 		          <article>
-		          	
 		            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
-		            <a href="<?= $project['url'] ?>" target="_blank">
-		              <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
-		            </a>
+		            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
 		            <p class="lead text-justify"><?= $project['body'] ?></p>
 		          </article>
 		        </div>

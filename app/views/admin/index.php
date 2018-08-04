@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/tinymce/js/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea', language : "fr_FR" });</script>
   </head>
   <body>
     <nav class="navbar navbar-dark bg-success">
@@ -35,9 +37,9 @@
           <?php endif; ?>
           <form action="/admin" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
             <input type="text" name="title" class="form-control" placeholder="Nom de la publication" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
-            <textarea name="resume" class="form-control" placeholder="Résumé de la publication"><?php if ( isset( $_POST['resume'] ) ) echo $_POST['resume'] ?></textarea>
-            <textarea name="body" class="form-control" placeholder="Texte de la publication"><?php if ( isset( $_POST['body'] ) ) echo $_POST['body'] ?></textarea>
-            <input type="file" name="picture" class="form-control-file">
+            <label for="name">Résumé de la publication :</label><textarea name="resume" class="form-control" placeholder="Résumé de la publication" value = "<?php if ( isset( $_POST['resume'] ) ) echo $_POST['resume'] ?>" ></textarea>
+            <label for="name">Texte de la publication :</label><textarea name="body" class="form-control" placeholder="Texte de la publication" value = "<?php if ( isset( $_POST['body'] ) ) echo $_POST['body'] ?>" ></textarea>
+            <label for="name">Photo :</label><input type="file" name="picture" class="form-control-file">
             <input type="submit" class="btn btn-success" value="Publier">
           </form>
         </div>
