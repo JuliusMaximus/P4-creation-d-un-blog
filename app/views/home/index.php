@@ -33,17 +33,21 @@
 	<!-- section recevant la dernière publication -->
 	<section>
 		<div class="card text-center">
+			<?php
+	        foreach( $data['projects'] as $key => $project ) :
+	        ?>
 		  <div class="card-header">
 		    <h2>Dernière publication</h2>
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title">Chapitre 1: Lorem ipsum dolor sit amet.</h5>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit veniam labore debitis libero, vel eaque assumenda nobis facere aut qui quidem porro sunt architecto magni, odio necessitatibus deleniti voluptas inventore. Minus vel quas, mollitia et pariatur reprehenderit nesciunt adipisci modi totam consectetur fugiat at delectus dolorum corrupti veniam distinctio nam corporis, cumque. Nam cum dicta iusto a. Alias sunt, nesciunt labore vel cupiditate quidem itaque voluptatibus magni nisi veniam, eveniet vero, neque nihil. Impedit odio mollitia iure dicta voluptatem dignissimos.</p>
-		    <a href="#" class="btn btn-primary"><i class="fas fa-book-open"></i> Lire</a>
+		    <h5 class="card-title"><?= $project['title'] ?></h5>
+		    <p class="card-text"><?= $project['resume'] ?></p>
+		    <a href="/read/blog?<?= $project['id']; ?>" class="btn btn-primary"><i class="fas fa-book-open"></i> Lire</a>
 		  </div>
 		  <div class="card-footer text-muted">
-		    2 days ago
+		    Le <?= $project['created_at'] ?>
 		  </div>
+		<?php endforeach;?>
 		</div>
 		
 	</section>

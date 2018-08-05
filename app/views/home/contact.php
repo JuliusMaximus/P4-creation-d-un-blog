@@ -17,7 +17,7 @@
 		<?php include("nav.php"); ?>
 		
 	</header>
-	<form class="mt-5 mb-5">
+	<form action="/contact/contactMail" method="post" class="mt-5 mb-5">
 	<h1>Formulaire de contact</h1>
 	  <div class="form-group">
 	  	<label for="name">Votre nom</label>
