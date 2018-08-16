@@ -4,47 +4,54 @@ class contact extends Controller {
     $this->view( 'home/contact', [] );
   }
 
-  public function contactMail() {
+  public function mail_contact() {
 
-  	if (empty($_POST['name'])) {
-	  $erreur = 'Nom manquant !';
-	}
-  	
-	if (empty($_POST['email'])) {
-	  $erreur = 'Adresse e-mail manquante !';
-	}
-	elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-	  $erreur = 'Adresse e-mail invalide !';
-	}
-	  
-	if (empty($_POST['message'])) {
-	  $erreur = 'Message manquant !';
-	}
-	
+    if ( !empty( $_POST ) ) {
+      extract( $_POST );
+      $erreur = [];
+      $success = [];
 
-	$message = '
-    <h1> Nouveau message envoyé via votre formulaire de contact : </h1>
-    <p>
-      Nom : <b>' . $_POST['name'] . '</b><br>
-    </p>
-    <p>
-      Email : <b>' . $_POST['email'] . '</b><br>
-    </p>
-    <p>
-      Message : <b>' . $_POST['message'] . '</b><br>
-    </p>
-    ';
+      if (empty($name)) {
+        $erreur['name'] = 'Nom manquant !';
+      }
 
-    mail_html('Nouveau message', $message);
+      if ( empty( $email ) ) {
+        $erreur['email'] = 'Adresse e-mail obligatoire';
+      }
+      elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreur['email'] = 'Adresse e-mail invalide !';
+      }
 
-    $validation = "Nouveau mot de passe envoyé !";
+      if (empty($message)) {
+    	  $erreur['message'] = 'Message manquant !';
+    	}
+
+      if ( empty($erreur) ) {
+        $success['mailSend']= 'Votre message a bien été envoyé !';
+        
+        $emailMessage = '
+        <h3> Nouveau message envoyé depuis votre formulaire de contact : </h3>
+        <p>
+          Nom : <b>' . $name . '</b><br>
+        </p>
+        <p>
+          Email : <b>' . $email . '</b><br>
+        </p>
+        <p>
+          Message : <b>' . $message . '</b><br>
+        </p>
+        ';
+        
+        $headers = 'From: <' . $email .'>' . "\r\n";
+        $headers .= 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8';
+       
+        $destinataire = 'weckjulien@yahoo.fr';
+
+        mail( $destinataire, 'Nouveau message', $emailMessage, $headers );
+      }
+
+      $this->view( 'home/contact', ['erreur' => $erreur, 'success' => $success] );
+	  } 
   }
-
-  private function mail_html(string $subject, string $message) {
-	$headers = 'From: <$_POST["email"]>' . "\r\n";
-	$headers .= 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=utf-8';
-
-    mail('contact@weckjulien.fr', $subject, $message, $headers);
-}
 }

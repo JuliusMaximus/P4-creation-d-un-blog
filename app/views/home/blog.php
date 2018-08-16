@@ -37,7 +37,7 @@
             <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> Le <time><?= $project['created_at'] ?></time></span></h1>  
             <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
             <p class="lead text-justify"><?= $project['resume'] ?></p>
-            <a href="/read/blog?<?= $project['id']; ?>" class="btn btn-primary float-right mt-3"><i class="fas fa-book-open"></i> Lire</a>
+            <a href="/read/blog/<?= $project['id']; ?>" class="btn btn-primary float-right mt-3"><i class="fas fa-book-open"></i> Lire</a>
           </article>
         </div>
         <?php
