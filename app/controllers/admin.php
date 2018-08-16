@@ -154,7 +154,7 @@ class Admin extends Controller {
           'id'     => $id
         ] );
 
-        header( 'Location: /admin/editer/' . $id );
+        header( 'Location: /admin ');
       }
       else {
         $this->view( 'admin/editer', ['erreur' => $erreur, 'project' => $project[0]] );

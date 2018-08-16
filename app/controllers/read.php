@@ -1,6 +1,6 @@
 <?php
 class Read extends Controller {
-  public function blog( $id ) { 
+  public function blog( int $id ) { 
 
   	$projects = DB::select( 'select * from project where id = ?', [$id]);
 
