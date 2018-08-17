@@ -71,5 +71,36 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <h1 class="text-xs-center">Commentaires</h1>
+      <div class="row">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>ID Publication</th>
+                <th>Auteur</th>
+                <th>Commentaire</th>
+                <th>Valider</th>
+                <th>Supprimer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              foreach($data['comments'] as $key => $comment) :
+              ?>
+              <tr>
+                <th><?= $comment['id_project'] ?></th>
+                <td><?= $comment['author'] ?></td>
+                <td><?= $comment['comment'] ?></td>
+                <td><a href="/admin/validateComment/<?= $comment['id'] ?>" class="text-success">Valider</a></td>
+                <td><a href="/admin/deleteComment/<?= $comment['id'] ?>" class="text-success">Supprimer</a></td>
+              </tr>
+              <?php
+              endforeach;
+              ?>
+            </tbody>
+          </table>
+      </div>
+    </div>
   </body>
 </html>

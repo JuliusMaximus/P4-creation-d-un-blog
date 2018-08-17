@@ -57,7 +57,15 @@ class Admin extends Controller {
       $this->view( 'admin/index', ['erreur' => $erreur, 'projects' => $projects] );
     }
 
-    $this->view( 'admin/index', ['projects' => $projects] );
+    $comments = DB::select( 'select * from moderation_comments');
+
+      foreach ( $comments as $key => $comment ) {
+      $date = date_create( $comment['created_at'] );
+      $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
+      $comments[$key]['comment'] = nl2br( $comment['comment'] );
+    }
+
+    $this->view( 'admin/index', ['projects' => $projects, 'comments' => $comments] );
   }
 
   public function connexion() {
@@ -162,6 +170,26 @@ class Admin extends Controller {
     }
 
     $this->view( 'admin/editer', ['project' => $project[0]] );
+  }
+
+  public function deleteComment(int $id) {
+    if ( !isset( $_SESSION['id'] ) ) {
+      header( 'Location: /admin/connexion' );
+    }
+
+    DB::delete( 'delete from moderation_comments where id = ?', [$id]);
+
+    header( 'Location: /admin' );
+  } 
+
+  public function validateComment( int $id ) {
+    if ( !isset( $_SESSION['id'] ) ) {
+      header( 'Location: /admin/connexion' );
+    }
+
+    DB::insert( 'insert into comments select * from moderation_comments where id = :id; delete from moderation_comments where id = :id', ['id' => $id]);
+
+    header( 'Location: /admin' );
   }
 
   private function accountExists() : array {

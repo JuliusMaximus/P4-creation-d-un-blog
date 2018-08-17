@@ -26,6 +26,18 @@
 		         foreach( $data['projects'] as $key => $project ) :
 		        ?>
 		        <div class="col-md-8">
+		        	<?php if ( isset( $data['erreur']['author'] ) ) : ?>
+			            <div class="alert alert-danger"><?= $data['erreur']['author'] ?></div>
+		            <?php endif; ?>
+			        <?php if ( isset( $data['erreur']['comment'] ) ) : ?>
+			            <div class="alert alert-danger"><?= $data['erreur']['comment'] ?></div>
+			        <?php endif; ?>
+			        <?php if ( isset( $data['success']['send'] ) ) : ?>
+			            <div class="alert alert-success">
+			            	<?= $data['success']['send'] ?>
+			            	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			            </div>
+			        <?php endif; ?>
 		          <article>
 		            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
 		            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
@@ -38,10 +50,38 @@
 		        }
 		        endforeach;
 		        ?>
+		    </div>
+			<hr>
+			<div class="container">
+		      <h3 class="text-xs-center">Poster un commentaire</h3>
+		      <div class="row">
+		        <div class="col-xl-4 col-xl-offset-4 col-md-6 col-md-offset-3">
+		          <form action="" method="post" class="p-y-3 p-x-2" novalidate>
+		            <input class="mb-3" type="text" name="author" class="form-control" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
+		            <textarea class="mb-3" type="text" name="comment" class="form-control" placeholder="Votre commentaire" rows="3"></textarea><br>
+		            <input type="submit" class="btn btn-success" value="Envoyer">
+		          </form>
+		        </div>
+		        <div class="row">
+		        	<div>
+			        	<h3>Commentaires</h3>
+				        <?php
+				         foreach( $data['comments'] as $key => $comment ) :
+				        ?>
+				        <article>
+				           <b><?= $comment['author'] ?> <span class="text-muted lead"> <time>Le <?= $comment['created_at'] ?></time></span></b>
+				           <p class="lead text-justify"><?= $comment['comment'] ?></p>
+				        </article>
+				        <?php
+				        if( $key % 2 == 1 ) {
+				          echo '<div class="hidden-sm-down clearfix"></div>';
+				        }
+				        endforeach;
+				        ?>
+					</div>
+		        </div>
 		      </div>
-
-			<h2>Commentaires</h2>
-			
+		    </div>
 		</section>
 		<hr>
 		
