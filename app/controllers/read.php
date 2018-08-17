@@ -10,7 +10,7 @@ class Read extends Controller {
       $projects[$key]['body'] = nl2br( $project['body'] );
     }
 
-    $comments = DB::select('select * from comments where id_project = ?', [$id]);
+    $comments = DB::select('select * from comments where id_project = ? order by id desc', [$id]);
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
@@ -20,7 +20,6 @@ class Read extends Controller {
     if (!empty( $_POST )) {
       extract( $_POST );
       $erreur = [];
-      $success = [];
 
       if ( empty( $author ) ) {
         $erreur['author'] = 'Veuillez renseigner votre nom ou pseudo !';
@@ -30,16 +29,15 @@ class Read extends Controller {
       }
 
       if ( !$erreur ) {
-        DB::insert('insert into moderation_comments (id_project, author, comment) values (:id_project, :author, :comment)', [
+        DB::insert('insert into comments (id_project, author, comment) values (:id_project, :author, :comment)', [
           'id_project' => $id,
           'author'     => htmlspecialchars($author),
           'comment'    => htmlspecialchars($comment)
         ]);
 
-        $success['send'] = "Commentaire envoyé !";
-
+        header( 'Location: /read/blog/' . $id );
       }
-      $this->view( 'home/read', ['erreur' => $erreur, 'projects' => $projects, 'comments' => $comments, 'success' => $success] );
+      $this->view( 'home/read', ['erreur' => $erreur, 'projects' => $projects, 'comments' => $comments] );
     }
 
 	$this->view( 'home/read', ['projects' => $projects, 'comments' => $comments] );

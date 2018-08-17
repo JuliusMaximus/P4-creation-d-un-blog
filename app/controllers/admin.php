@@ -57,7 +57,7 @@ class Admin extends Controller {
       $this->view( 'admin/index', ['erreur' => $erreur, 'projects' => $projects] );
     }
 
-    $comments = DB::select( 'select * from moderation_comments');
+    $comments = DB::select( 'select * from comments order by id desc');
 
       foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
@@ -172,24 +172,39 @@ class Admin extends Controller {
     $this->view( 'admin/editer', ['project' => $project[0]] );
   }
 
-  public function deleteComment(int $id) {
+  public function moderation( int $id ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
 
-    DB::delete( 'delete from moderation_comments where id = ?', [$id]);
+    $comment = DB::select( 'select * from comments where id = ?', [$id] );
 
-    header( 'Location: /admin' );
-  } 
-
-  public function validateComment( int $id ) {
-    if ( !isset( $_SESSION['id'] ) ) {
-      header( 'Location: /admin/connexion' );
+    if ( !$comment ) {
+      header( 'Location: /admin' );
     }
 
-    DB::insert( 'insert into comments select * from moderation_comments where id = :id; delete from moderation_comments where id = :id', ['id' => $id]);
+    if ( !empty( $_POST ) ) {
+      extract( $_POST );
+      $erreur = [];
 
-    header( 'Location: /admin' );
+      if ( empty( $comment ) ) {
+        $erreur['comment'] = 'Commentaire obligatoire';
+      }
+
+      if ( !$erreur ) {
+        DB::update( 'update comments set comment = :comment where id = :id', [
+          'comment' => $comment,
+          'id'      => $id
+        ] );
+
+        header( 'Location: /admin ');
+      }
+      else {
+        $this->view( 'admin/moderation', ['erreur' => $erreur, 'comment' => $comment[0]] );
+      }
+    }
+
+    $this->view( 'admin/moderation', ['comment' => $comment[0]] );
   }
 
   private function accountExists() : array {

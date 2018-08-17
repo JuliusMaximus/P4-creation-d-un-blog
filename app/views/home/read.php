@@ -69,8 +69,9 @@
 				         foreach( $data['comments'] as $key => $comment ) :
 				        ?>
 				        <article>
-				           <b><?= $comment['author'] ?> <span class="text-muted lead"> <time>Le <?= $comment['created_at'] ?></time></span></b>
+				           <b><?= $comment['author'] ?> <span class="text-muted lead"> <time> Le <?= $comment['created_at'] ?></time></span></b>
 				           <p class="lead text-justify"><?= $comment['comment'] ?></p>
+				           <p><a href="">Signaler</a></p>
 				        </article>
 				        <?php
 				        if( $key % 2 == 1 ) {

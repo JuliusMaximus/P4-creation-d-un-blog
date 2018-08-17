@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
     <script>tinymce.init({ selector:'textarea', language : "fr_FR" });</script>
   </head>
@@ -72,16 +73,18 @@
       </div>
     </div>
     <div class="container">
-      <h1 class="text-xs-center">Commentaires</h1>
+      <h2 class="text-xs-center h1">Commentaires</h2>
       <div class="row">
+        <h3>Commentaires à modérer</h3>
         <table class="table table-striped">
             <thead>
               <tr>
                 <th>ID Publication</th>
+                <th>Date</th>
                 <th>Auteur</th>
                 <th>Commentaire</th>
-                <th>Valider</th>
-                <th>Supprimer</th>
+                <th>Modérer</th>
+                <th><i class="fas fa-exclamation-triangle"></i></th>
               </tr>
             </thead>
             <tbody>
@@ -90,10 +93,17 @@
               ?>
               <tr>
                 <th><?= $comment['id_project'] ?></th>
+                <td><?= $comment['created_at'] ?></td>
                 <td><?= $comment['author'] ?></td>
                 <td><?= $comment['comment'] ?></td>
-                <td><a href="/admin/validateComment/<?= $comment['id'] ?>" class="text-success">Valider</a></td>
-                <td><a href="/admin/deleteComment/<?= $comment['id'] ?>" class="text-success">Supprimer</a></td>
+                <td><a href="/admin/moderation/<?= $comment['id'] ?>" class="text-success">Modérer</a></td>
+                <?php
+                if ( $comment['reported']) :
+                ?>
+                <td><i class="fas fa-exclamation-triangle"></i></td>
+                <?php
+                endif;
+                ?>
               </tr>
               <?php
               endforeach;
