@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea', language : "fr_FR" });</script>
+    <script>tinymce.init({ 
+      selector:'textarea', 
+      plugins : "textcolor fullscreen",
+      toolbar : "forecolor backcolor fullscreen",
+      language: "fr_FR" });
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-dark bg-success">

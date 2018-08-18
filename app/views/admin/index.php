@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea', language : "fr_FR" });</script>
+    <script>tinymce.init({ 
+      selector:'textarea', 
+      plugins : "textcolor fullscreen",
+      toolbar : "forecolor backcolor fullscreen",
+      language: "fr_FR" });
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-dark bg-success">
