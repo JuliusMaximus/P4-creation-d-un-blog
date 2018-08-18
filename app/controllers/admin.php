@@ -57,7 +57,7 @@ class Admin extends Controller {
       $this->view( 'admin/index', ['erreur' => $erreur, 'projects' => $projects] );
     }
 
-    $comments = DB::select( 'select * from comments order by id desc');
+    $comments = DB::select( 'select * from comments order by reported desc, id desc');
 
       foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
@@ -192,9 +192,10 @@ class Admin extends Controller {
       }
 
       if ( !$erreur ) {
-        DB::update( 'update comments set comment = :comment where id = :id', [
-          'comment' => $comment,
-          'id'      => $id
+        DB::update( 'update comments set comment = :comment, reported = :reported where id = :id', [
+          'comment'  => $comment,
+          'reported' => 0,
+          'id'       => $id
         ] );
 
         header( 'Location: /admin ');

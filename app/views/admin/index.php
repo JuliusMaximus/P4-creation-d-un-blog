@@ -84,7 +84,7 @@
                 <th>Auteur</th>
                 <th>Commentaire</th>
                 <th>Modérer</th>
-                <th><i class="fas fa-exclamation-triangle"></i></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -97,13 +97,15 @@
                 <td><?= $comment['author'] ?></td>
                 <td><?= $comment['comment'] ?></td>
                 <td><a href="/admin/moderation/<?= $comment['id'] ?>" class="text-success">Modérer</a></td>
-                <?php
-                if ( $comment['reported']) :
-                ?>
-                <td><i class="fas fa-exclamation-triangle"></i></td>
-                <?php
-                endif;
-                ?>
+                <td>
+                  <?php
+                  if ( $comment['reported']) :
+                  ?>
+                  <i class="fas fa-exclamation-triangle alert alert-danger"></i>
+                  <?php
+                  endif;
+                  ?>
+                </td>
               </tr>
               <?php
               endforeach;

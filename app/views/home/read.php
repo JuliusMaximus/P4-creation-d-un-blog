@@ -56,7 +56,7 @@
 		      <h3 class="text-xs-center">Poster un commentaire</h3>
 		      <div class="row">
 		        <div class="col-xl-4 col-xl-offset-4 col-md-6 col-md-offset-3">
-		          <form action="" method="post" class="p-y-3 p-x-2" novalidate>
+		          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate>
 		            <input class="mb-3" type="text" name="author" class="form-control" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
 		            <textarea class="mb-3" type="text" name="comment" class="form-control" placeholder="Votre commentaire" rows="3"></textarea><br>
 		            <input type="submit" class="btn btn-success" value="Envoyer">
@@ -71,7 +71,7 @@
 				        <article>
 				           <b><?= $comment['author'] ?> <span class="text-muted lead"> <time> Le <?= $comment['created_at'] ?></time></span></b>
 				           <p class="lead text-justify"><?= $comment['comment'] ?></p>
-				           <p><a href="">Signaler</a></p>
+				           <p><a href="/read/report/<?= $comment['id'] ?>/<?= $project['id'] ?>">Signaler</a></p>
 				        </article>
 				        <?php
 				        if( $key % 2 == 1 ) {
