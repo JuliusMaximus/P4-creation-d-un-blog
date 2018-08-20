@@ -17,29 +17,6 @@ class Read extends Controller {
       $comments[$key]['comment'] = nl2br( $comment['comment'] );
     }
 
-    /*if (!empty( $_POST )) {
-      extract( $_POST );
-      $erreur = [];
-
-      if ( empty( $author ) ) {
-        $erreur['author'] = 'Veuillez renseigner votre nom ou pseudo !';
-      }
-      if ( empty( $comment ) ) {
-        $erreur['comment'] = 'Veuillez écrire un commentaire !';
-      }
-
-      if ( !$erreur ) {
-        DB::insert('insert into comments (id_project, author, comment) values (:id_project, :author, :comment)', [
-          'id_project' => $id,
-          'author'     => htmlspecialchars($author),
-          'comment'    => htmlspecialchars($comment)
-        ]);
-
-        header( 'Location: /read/blog/' . $id );
-      }
-      $this->view( 'home/read', ['erreur' => $erreur, 'projects' => $projects, 'comments' => $comments] );
-    }*/
-
 	  $this->view( 'home/read', ['projects' => $projects, 'comments' => $comments] );
   }
 
@@ -82,7 +59,7 @@ class Read extends Controller {
       }
       $this->view( 'home/read', ['erreur' => $erreur, 'projects' => $projects, 'comments' => $comments] );
     }
-    
+
     $this->view( 'home/read', ['projects' => $projects, 'comments' => $comments] );
   }
 

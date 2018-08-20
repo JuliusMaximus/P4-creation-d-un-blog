@@ -42,7 +42,7 @@
             <div class="alert alert-danger"><?= $data['erreur']['picture'] ?></div>
           <?php endif; ?>
           <form action="/admin" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
-            <input type="text" name="title" class="form-control" placeholder="Nom de la publication" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
+            <input type="text" name="title" class="form-control" placeholder="Titre de la publication" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
             <label for="name">Résumé de la publication :</label><textarea name="resume" class="form-control" placeholder="Résumé de la publication" value = "<?php if ( isset( $_POST['resume'] ) ) echo $_POST['resume'] ?>" ></textarea>
             <label for="name">Texte de la publication :</label><textarea name="body" class="form-control" placeholder="Texte de la publication" value = "<?php if ( isset( $_POST['body'] ) ) echo $_POST['body'] ?>" ></textarea>
             <label for="name">Photo :</label><input type="file" name="picture" class="form-control-file">
@@ -80,7 +80,6 @@
     <div class="container">
       <h2 class="text-xs-center h1">Commentaires</h2>
       <div class="row">
-        <h3>Commentaires à modérer</h3>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -117,6 +116,15 @@
               ?>
             </tbody>
           </table>
+          <?php 
+          for( $i = 1;$i <= $data['pagesTotal'];$i++ ) {
+            if( $i == $data['currentPage'] ) {
+              echo $i . ' ';
+            } else {
+              echo '<a href="/admin/' . $i .'">' . $i . '</a>';
+            }
+          }
+        ?>
       </div>
     </div>
   </body>

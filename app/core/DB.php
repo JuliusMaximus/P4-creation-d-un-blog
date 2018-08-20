@@ -13,6 +13,18 @@ class DB extends PDO {
     }
   }
 
+  public static function selec (  int $start, int $perPage ) : array {
+    $bdd = new DB;
+
+    
+    $req = $bdd->query( 'select * from comments order by id desc limit' . $start . ',' . $perPage );
+    
+
+    $data = $req->fetchAll();
+
+    return $data;
+  }
+
   public static function select ( string $query, array $params = [] ) : array {
     $bdd = new DB;
 
@@ -29,20 +41,14 @@ class DB extends PDO {
     return $data;
   }
 
-  public static function selectById ( string $query, array $params = [] ) : array {
+  public static function selectAndCount ( string $query ) : int {
     $bdd = new DB;
 
-    if ( $params ) {
-      $req = $bdd->prepare( $query );
-      $req->execute( $params );
-    }
-    else {
-      $req = $bdd->query( $query );
-    }
+    $req = $bdd->query( $query );
+    $result = $req->fetchAll();
+    $row = count( $result );
 
-    $data = $req->fetchAll();
-
-    return $data;
+    return $row;
   }
 
   public static function update ( string $query, array $params = [] ) : int {

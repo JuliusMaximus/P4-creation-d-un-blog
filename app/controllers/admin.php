@@ -1,6 +1,6 @@
 <?php
 class Admin extends Controller {
-  public function index() {
+  public function index( int $id ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
@@ -57,15 +57,28 @@ class Admin extends Controller {
       $this->view( 'admin/index', ['erreur' => $erreur, 'projects' => $projects] );
     }
 
-    $comments = DB::select( 'select * from comments order by reported desc, id desc');
+    $perPage = 10;
+    $total = DB::selectAndCount( 'select id from comments' );
+    $pagesTotal = ceil( $total/$perPage );
+    var_dump($total);
+    if( isset( $id ) && !empty( $id) &&  $id > 0 &&  $id <= $pagesTotal ) {
+      $id = intval( $id );
+      $currentPage =  $id;
+    } else {
+      $currentPage = 1;
+    }
 
+    $start = ($currentPage - 1) * $perPage;
+
+    $comments = DB::select( 'select * from comments order by reported desc, id desc limit :start, :perpage', ['start' => $start, 'perpage' => $perPage] );
+    
       foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
       $comments[$key]['comment'] = nl2br( $comment['comment'] );
     }
 
-    $this->view( 'admin/index', ['projects' => $projects, 'comments' => $comments] );
+    $this->view( 'admin/index', ['projects' => $projects, 'comments' => $comments, 'currentPage' => $currentPage, 'pagesTotal' => $pagesTotal] );
   }
 
   public function connexion() {
