@@ -1,6 +1,6 @@
 <?php
 class Admin extends Controller {
-  public function index( int $id ) {
+  public function index( int $id = 1 ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
@@ -60,7 +60,7 @@ class Admin extends Controller {
     $perPage = 10;
     $total = DB::selectAndCount( 'select id from comments' );
     $pagesTotal = ceil( $total/$perPage );
-    var_dump($total);
+    
     if( isset( $id ) && !empty( $id) &&  $id > 0 &&  $id <= $pagesTotal ) {
       $id = intval( $id );
       $currentPage =  $id;
@@ -70,9 +70,9 @@ class Admin extends Controller {
 
     $start = ($currentPage - 1) * $perPage;
 
-    $comments = DB::select( 'select * from comments order by reported desc, id desc limit :start, :perpage', ['start' => $start, 'perpage' => $perPage] );
+    $comments = DB::select( 'select * from comments order by reported desc, id desc limit 0, 10');
     
-      foreach ( $comments as $key => $comment ) {
+    foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
       $comments[$key]['comment'] = nl2br( $comment['comment'] );
@@ -229,6 +229,77 @@ class Admin extends Controller {
     }
     else {
       return [];
+    }
+  }
+
+  public function newPassword() {
+    if ( !isset( $_SESSION['id'] ) ) {
+          header( 'Location: /admin/connexion' );
+    }
+
+    if (!empty($_POST)) {
+      extract($_POST);
+      $erreur = [];
+      $success = [];
+
+      if (empty($oldpassword)) {
+        $erreur['oldpassword'] = 'Ancien mot de passe manquant !';
+      }
+      elseif (!$this->password_ok()) {
+        $erreur['oldpassword'] = 'Ancien mot de passe erroné !';
+      }
+
+      if (empty($newpassword)) {
+        $erreur['newpassword'] = 'Nouveau mot de passe manquant !';
+      }
+      elseif (strlen($newpassword) < 8) {
+        $erreur['newpassword'] = 'Nouveau mot de passe trop court. Min 8 caractères !';
+      }
+      if (empty($newpasswordconf)) {
+        $erreur['newpasswordconf'] = 'confirmation du nouveau mot de passe manquante !';
+      }
+      elseif ($newpasswordconf != $newpassword) {
+        $erreur['newpasswordconf'] = 'Confirmation du nouveau mot de passe différente !';
+      }
+
+      if (!$erreur) {
+        $this->password_save();
+        $success['validation'] = 'Nouveau mot de passe enregistré avec succès !';
+      }   
+
+      $this->view( 'admin/newpassword', ['erreur' => $erreur, 'success' => $success] );
+    }
+
+    $this->view( 'admin/newpassword' );
+  }
+
+  private function password_ok() : bool {
+    $admin = DB::select('SELECT password FROM admin WHERE id = 1');
+
+    if (password_verify($_POST['oldpassword'], $admin[0]['password'])) {
+      return true;
+    }
+
+    else {
+      return false;
+    }
+  }
+
+  private function password_save(string $password = '', string $email = '') {
+    $newpassword = $_POST['newpassword'] ?? $password;
+
+    if (isset($email)) {
+      // gestion oubli de mdp
+      DB::update('UPDATE admin SET password = :password WHERE mail = :email', [
+        'password' => password_hash($newpassword, PASSWORD_DEFAULT),
+        'email'    => $email
+      ]);
+    }
+    else {
+      // gestion pour changement de mdp
+      DB::update('UPDATE admin SET password = :password WHERE id = 1', [
+        'password' => password_hash($newpassword, PASSWORD_DEFAULT)
+      ]);
     }
   }
 }

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Gestion des publications</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
     <script>tinymce.init({ 
@@ -21,6 +21,7 @@
         <a href="/admin" class="navbar-brand">Jean Forteroche Administration</a>
         <ul class="nav navbar-nav pull-xs-right">
           <li class="nav-item"><a class="nav-link" href="/"  target="_blank">Aller sur le site</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/newpassword"  target="_blank">Modifier mot de passe</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin/deconnexion">Déconnexion</a></li>
         </ul>
       </div>
