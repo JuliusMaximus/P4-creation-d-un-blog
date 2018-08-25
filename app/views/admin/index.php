@@ -95,7 +95,6 @@
           <div id="collapsePublication" class="collapse" aria-labelledby="headingPublication" data-parent="#menu">
             <div class="card-body">
              <div class="container">
-                <h1 class="text-xs-center">Publications</h1>
                 <div class="row">
                   <div class="col-md-6">
                     <?php if ( isset( $data['erreur']['title'] ) ) : ?>
