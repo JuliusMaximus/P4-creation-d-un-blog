@@ -1,63 +1,40 @@
-/*--------------style general--------------*/
-body, html, .wrapper, .card {
-  margin: 0;
-  padding: 0;
-  background-color: #eaeaea !important;
-  height: 100%;
-  width: 100%; }
+form, h1 {
+  margin-bottom: 3rem; }
 
-/*------------login---------------*/
-.wrapper {
-  display: table; }
-
-.content {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-.card {
-  background: #469CD6 !important;
-  color: #fff !important; }
-
-.card-title {
-  background: #fff !important;
-  color: #000;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-radius: 5px; }
-
-.card-text span {
-  color: #c60909; }
-
-input[type="submit"] {
+article {
   margin-top: 2rem; }
 
-.card-subtitle {
-  padding: 1em; }
+img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  transition: filter .5s ease; }
 
-/*-------------page administration-----------------*/
-.admin_header {
-  background: #469CD6;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  color: #fff !important;
-  border-radius: 3px;
-  margin: 1rem; }
+img:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0); }
 
-.admin_nav {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
+* {
+  font-family: Nunito,sans-serif; }
 
-.admin_content {
-  border: 1px solid #000;
-  background: #fff; }
+form {
+  background: #efefef;
+  border-radius: .5rem; }
 
-/*--------------------medias queries---------------------*/
-@media all and (min-width: 576px) {
-  .card {
-    width: 20rem !important;
-    margin: auto; } }
+input {
+  text-align: center;
+  height: 3rem;
+  width: 100%; }
+
+input, textarea {
+  margin-bottom: 2rem; }
+
+input[type=submit] {
+  width: 100%;
+  margin-bottom: 0; }
+
+h1 {
+  margin-top: 3rem; }
 
 /*# sourceMappingURL=admin.css.map */

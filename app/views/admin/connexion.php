@@ -5,7 +5,7 @@
     <title>Connexion</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
   </head>
   <body>
     <nav class="navbar navbar-dark bg-success">

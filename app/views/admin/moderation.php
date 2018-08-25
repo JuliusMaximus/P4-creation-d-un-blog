@@ -5,7 +5,7 @@
     <title>Modération des commentaires</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
     <script>tinymce.init({ 
       selector:'textarea', 
