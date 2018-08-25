@@ -5,7 +5,7 @@
     <title>Gestion des publications</title>
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
-    <link rel="stylesheet" href="public/css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="/js/tinymce/js/tinymce.min.js"></script>
     <script>tinymce.init({ 

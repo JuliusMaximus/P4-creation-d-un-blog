@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Édition des publications</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/admin.css">
     <script src="/js/tinymce/js/tinymce.min.js"></script>

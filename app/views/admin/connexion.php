@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/admin.css">
   </head>
@@ -15,7 +15,7 @@
     </nav>
     <div class="container">
       <h1 class="text-xs-center">Connexion</h1>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-xl-4 col-xl-offset-4 col-md-6 col-md-offset-3">
           <?php if ( isset( $data['erreur'] ) ) : ?>
             <div class="alert alert-danger"><?= $data['erreur'] ?></div>
