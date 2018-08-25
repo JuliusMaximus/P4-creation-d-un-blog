@@ -10,7 +10,7 @@ class Read extends Controller {
       $projects[$key]['body'] = nl2br( $project['body'] );
     }
 
-    $comments = DB::select('select * from comments where id_project = ? order by id desc limit 0, 3', [$id]);
+    $comments = DB::select('select * from comments where id_project = ? order by id desc', [$id]);
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
