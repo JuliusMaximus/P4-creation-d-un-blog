@@ -30,10 +30,33 @@ class DB extends PDO {
     return $data;
   }
 
-  public static function selectAndCount ( string $query ) : int {
+  public static function selectWithLimit ( string $query, int $start, int $perPage, int $id = 1 ) : array {
     $bdd = new DB;
 
-    $req = $bdd->query( $query );
+    
+    $req = $bdd->prepare( $query );
+    $req->bindValue('start', $start, PDO::PARAM_INT);
+    $req->bindValue('perPage', $perPage, PDO::PARAM_INT);
+    $req->bindValue('id', $id);
+    $req->execute();
+    
+
+    $data = $req->fetchAll();
+
+    return $data;
+  }
+
+  public static function selectAndCount ( string $query, array $params = [] ) : int {
+    $bdd = new DB;
+
+    if ( $params ) {
+      $req = $bdd->prepare( $query );
+      $req->execute( $params );
+    }
+    else {
+      $req = $bdd->query( $query );
+    }
+    
     $result = $req->fetchAll();
     $row = count( $result );
 

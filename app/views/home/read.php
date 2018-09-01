@@ -22,7 +22,7 @@
 			<h1>Mon super blog !</h1>
 	        <p><a href="/blog">Retour à la liste des billets</a></p>
 			
-			<div class="row d-flex justify-content-center">
+			<div id="publication" class="row d-flex justify-content-center mb-5" data-spy="scroll" data-offset="0">
 				<!-- Récupération et Construction de l'article et ses commentaires -->
 		        <?php
 		         foreach( $data['projects'] as $key => $project ) :
@@ -54,10 +54,10 @@
 		        endforeach;
 		        ?>
 		    </div>
-			<hr>
-	        <div class="container">
+			<hr id="comments">
+	        <div id="comments" class="container mt-5">
 	        	<div class="row">
-	        		<div class="col-sm-6 col-md-4">
+	        		<div class="col-sm-6 col-md-4 mt-5">
 	        		  <h4>Poster un commentaire</h4>
 			          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate>
 			            <input class="mb-3" type="text" name="author" class="form-control" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
@@ -65,7 +65,7 @@
 			            <input type="submit" class="btn btn-success" value="Envoyer">
 			          </form>
 			        </div>
-		        	<div class="col-sm-6 col-md-8">
+		        	<div class="col-sm-6 col-md-8 mt-5">
 			        	<h3>Commentaires</h3>
 				        <?php
 				         foreach( $data['comments'] as $key => $comment ) :
@@ -81,6 +81,34 @@
 				        }
 				        endforeach;
 				        ?>
+				        <!-- Construction des liens de pagination -->
+	                    <div aria-label="Page commentaires">
+	                      <ul class="pagination">
+	                        <li class="page-item">
+	                          <a class="page-link" href="/read/blog/<?= $project['id'] ?>/<?= $data['currentPage'] - 1 ?>#comments" aria-label="Precedent">
+	                            <span aria-hidden="true">&laquo;</span>
+	                            <span class="sr-only">Precedent</span>
+	                          </a>
+	                        </li>
+	                        <?php 
+	                        for( $i = 1;$i <= $data['pagesTotal'];$i++ ) :
+	                        ?>
+	                        <?php if ($i == $data['currentPage']) : ?>
+	                        <li class="page-item active"><a class="page-link" href="/read/blog/<?= $project['id'] ?>/<?= $i ?>#comments"><?= $i ?></a></li>
+	                        <?php else: ?>
+	                        <li class="page-item"><a class="page-link" href="/read/blog/<?= $project['id'] ?>/<?= $i ?>#comments"><?= $i ?></a></li>
+	                        <?php endif; ?>
+	                        <?php
+	                        endfor;
+	                        ?>
+	                        <li class="page-item">
+	                          <a class="page-link" href="/read/blog/<?= $project['id'] ?>/<?= $data['currentPage'] + 1 ?>#comments" aria-label="suivant">
+	                            <span aria-hidden="true">&raquo;</span>
+	                            <span class="sr-only">suivant</span>
+	                          </a>
+	                        </li>
+	                      </ul>
+	                    </div>
 					</div>
 		        </div>
 	        </div>

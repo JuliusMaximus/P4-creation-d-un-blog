@@ -1,7 +1,7 @@
 <?php
 class Read extends Controller {
   // Construction de la page de l'article séléctionné
-  public function blog( int $id ) { 
+  public function blog( int $id, int $pageComment = 1 ) { 
     // Récupération de l'article
   	$projects = DB::select( 'select * from project where id = ?', [$id]);
     // formatage de la date
@@ -10,15 +10,29 @@ class Read extends Controller {
       $projects[$key]['created_at'] = date_format( $date, 'd/m/Y' );
       $projects[$key]['body'] = nl2br( $project['body'] );
     }
-    // récupération des commentaires
-    $comments = DB::select('select * from comments where id_project = ? order by id desc', [$id]);
+
+    // pagination de la liste des commentaires
+    $perPage = 3;
+    $total = DB::selectAndCount( 'select id from comments where id_project = ?', [$id] ); // récupération du nombre de ligne
+    $pagesTotal = ceil( $total/$perPage ); // calcule du nombre de page
+    // définition de la page courante
+    if( isset( $pageComment) && !empty( $pageComment) &&  $pageComment > 0 &&  $pageComment <= $pagesTotal ) {
+      $currentPage =  $pageComment;
+    } else {
+      $currentPage = 1;
+    }
+    // définition du premier commentaire de la page
+    $start = ($currentPage - 1) * $perPage;
+    // Récupération des commentaires suivant la page demandée
+    $comments = DB::selectWithLimit( 'select * from comments where id_project = :id order by id desc limit :start, :perPage', $start, $perPage, $id);
+    // Formatage de la date et du retour à la ligne
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
       $comments[$key]['comment'] = nl2br( $comment['comment'] );
     }
     // Transmition des données à la vue
-	  $this->view( 'home/read', ['projects' => $projects, 'comments' => $comments] );
+	  $this->view( 'home/read', ['projects' => $projects, 'comments' => $comments, 'currentPage' => $currentPage, 'pagesTotal' => $pagesTotal] );
   }
   // Insertion d'un nouveau commentaire
   public function insertComment( int $id) {

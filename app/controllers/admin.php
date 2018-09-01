@@ -64,7 +64,6 @@ class Admin extends Controller {
     $pagesTotal = ceil( $total/$perPage ); // calcule du nombre de page
     // définition de la page courante
     if( isset( $id ) && !empty( $id) &&  $id > 0 &&  $id <= $pagesTotal ) {
-      $id = intval( $id );
       $currentPage =  $id;
     } else {
       $currentPage = 1;
@@ -72,9 +71,8 @@ class Admin extends Controller {
     // définition du premier commentaire de la page
     $start = ($currentPage - 1) * $perPage;
     // Récupération des commentaires suivant la page demandée
-    $comments = DB::select( 'select * from comments order by reported desc, id desc limit :start, :perpage', ['start' => $start, 'perpage' => $perPage]);
+    $comments = DB::selectWithLimit( 'select * from comments order by reported desc, id desc limit :start, :perPage', $start, $perPage);
 
-    var_dump($comments);
     // Formatage de la date pour chaque commentaire
     // et du retour à la ligne 
     foreach ( $comments as $key => $comment ) {

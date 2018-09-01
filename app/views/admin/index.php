@@ -79,18 +79,36 @@
                       </tbody>
                     </table>
                     <!-- Construction des liens de pagination -->
-                    <?php 
-                    for( $i = 1;$i <= $data['pagesTotal'];$i++ ) {
-                      if( $i == $data['currentPage'] ) {
-                        echo $i . ' ';
-                      } else {
-                        echo '<a href="/admin/' . $i .'">' . $i . '</a>';
-                      }
-                    }
-                  ?>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link text-success" href="/admin/<?= $data['currentPage'] - 1 ?>" aria-label="Precedent">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Precedent</span>
+                          </a>
+                        </li>
+                        <?php 
+                        for( $i = 1;$i <= $data['pagesTotal'];$i++ ) :
+                        ?>
+                        <?php if ($i == $data['currentPage']) : ?>
+                        <li class="page-item"><a class="page-link bg-success text-white" href="/admin/<?= $i ?>"><?= $i ?></a></li>
+                        <?php else: ?>
+                        <li class="page-item"><a class="page-link text-success" href="/admin/<?= $i ?>"><?= $i ?></a></li>
+                        <?php endif; ?>
+                        <?php
+                        endfor;
+                        ?>
+                        <li class="page-item">
+                          <a class="page-link text-success" href="/admin/<?= $data['currentPage'] + 1 ?>" aria-label="suivant">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">suivant</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
         <!-- Créations et liste articles  -->
