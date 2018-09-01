@@ -70,7 +70,9 @@ class Admin extends Controller {
 
     $start = ($currentPage - 1) * $perPage;
 
-    $comments = DB::select( 'select * from comments order by reported desc, id desc limit 0, 10');
+    $comments = DB::select( 'select * from comments order by reported desc, id desc limit :start, :perpage', ['start' => $start, 'perpage' => $perPage]);
+
+    var_dump($comments);
     
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
