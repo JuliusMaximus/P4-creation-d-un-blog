@@ -1,3 +1,4 @@
+<!-- Liste des articles du blog -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,14 +14,14 @@
     <header>
       <!-- inclusion du menu -->
       <?php include("nav.php"); ?>
-
+      <!-- Photo pleine page -->
       <div class="wrapper">
         <div class="content">
           <h1>Le Blog</h1>
           <p>"Billet simple pour l'Alaska"</p>
         </div>
       </div>
-      
+      <!-- Flèche avec effet smoothScroll -->
       <div class="drop-down">
         <div id="down"></div>
         <a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>
@@ -29,6 +30,7 @@
     </header>
     <div class="container">
       <div class="row mt-4">
+        <!-- Récupération et construction des articles sur la page -->
         <?php
         foreach( $data['projects'] as $key => $project ) :
         ?>

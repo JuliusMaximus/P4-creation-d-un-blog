@@ -1,3 +1,4 @@
+<!-- Formulaire de contact -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,6 +21,7 @@
 	<div class="container">
 		<h1 class="text-xs-center">Formulaire de contact</h1>
 		<form action="/contact/mail_contact" method="post" class="mt-5 mb-5">
+			<!-- Affichage des erreurs -->
 		  <?php if ( isset( $data['erreur']['name'] ) ) : ?>
 		    <div class="alert alert-danger"><?= $data['erreur']['name'] ?></div>
 	      <?php endif; ?>

@@ -1,16 +1,17 @@
 <?php
 class Admin extends Controller {
+  // Construction de la page d'administration
   public function index( int $id = 1 ) {
-    if ( !isset( $_SESSION['id'] ) ) {
+    if ( !isset( $_SESSION['id'] ) ) { // Si pas connecté -> renvoi vers la page de connexion
       header( 'Location: /admin/connexion' );
     }
-
+    // récupération de tout les articles
     $projects = DB::select( 'select * from project order by id desc' );
 
     if ( !empty( $_POST ) ) {
       extract( $_POST );
       $erreur = [];
-
+      // Gestion des erreurs du formulaire de création d'article
       if ( empty( $title ) ) {
         $erreur['title'] = 'Titre obligatoire';
       }
@@ -34,10 +35,10 @@ class Admin extends Controller {
       else {
         $erreur['picture'] = 'Image obligatoire';
       }
-
+      // Si il n'y a pas d'erreur on insert l'article à la bdd
       if ( !$erreur ) {
-        $extension = str_replace( 'image/', '', $_FILES['picture']['type'] );
-        $name = bin2hex( random_bytes( 8 ) ) . '.' . $extension;
+        $extension = str_replace( 'image/', '', $_FILES['picture']['type'] ); // récupération de l'extention de l'image
+        $name = bin2hex( random_bytes( 8 ) ) . '.' . $extension; // création d'un nom aléatoire pour l'image
 
         if ( move_uploaded_file( $_FILES['picture']['tmp_name'], ROOT . 'public/img/imgArticles/' . $name ) ) {
           DB::insert( 'insert into project (title, resume, body, picture) values (:title, :resume, :body, :picture)', [
@@ -53,36 +54,38 @@ class Admin extends Controller {
           $erreur['picture'] = 'Erreur lors de l\'envoi du fichier';
         }
       }
-
+      // transmition des données à la vue
       $this->view( 'admin/index', ['erreur' => $erreur, 'projects' => $projects] );
     }
 
+    // pagination de la liste des commentaires
     $perPage = 10;
-    $total = DB::selectAndCount( 'select id from comments' );
-    $pagesTotal = ceil( $total/$perPage );
-    
+    $total = DB::selectAndCount( 'select id from comments' ); // récupération du nombre de ligne
+    $pagesTotal = ceil( $total/$perPage ); // calcule du nombre de page
+    // définition de la page courante
     if( isset( $id ) && !empty( $id) &&  $id > 0 &&  $id <= $pagesTotal ) {
       $id = intval( $id );
       $currentPage =  $id;
     } else {
       $currentPage = 1;
     }
-
+    // définition du premier commentaire de la page
     $start = ($currentPage - 1) * $perPage;
-
+    // Récupération des commentaires suivant la page demandée
     $comments = DB::select( 'select * from comments order by reported desc, id desc limit :start, :perpage', ['start' => $start, 'perpage' => $perPage]);
 
     var_dump($comments);
-    
+    // Formatage de la date pour chaque commentaire
+    // et du retour à la ligne 
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
       $comments[$key]['comment'] = nl2br( $comment['comment'] );
     }
-
+    // transmition des données à la vue
     $this->view( 'admin/index', ['projects' => $projects, 'comments' => $comments, 'currentPage' => $currentPage, 'pagesTotal' => $pagesTotal] );
   }
-
+  // Connexion à l'espace d'administration
   public function connexion() {
     if ( isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin' );
@@ -90,9 +93,9 @@ class Admin extends Controller {
 
     if ( !empty( $_POST ) ) {
       extract( $_POST );
-
+      // on vérifie si le compte existe
       $admin = $this->accountExists();
-
+      // Récupération de l'id de session
       if ( $admin ) {
         $_SESSION['id'] = $admin['id'];
 
@@ -101,18 +104,18 @@ class Admin extends Controller {
       else {
         $erreur = 'Identifiants erronés';
       }
-
+      // Transmition des erreurs à la vue
       $this->view( 'admin/connexion', ['erreur' => $erreur] );
     }
 
     $this->view( 'admin/connexion' );
   }
-
+  // Déconnexion de l'espace d'administration
   public function deconnexion() {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
-
+    // On supprime toutes les données de session et on redirige vers la page de connexion
     $_SESSION = [];
 
     if (ini_get("session.use_cookies")) {
@@ -127,7 +130,7 @@ class Admin extends Controller {
 
     header( 'Location: /admin/connexion' );
   }
-
+  // Suppression d'un article
   public function supprimer( int $id ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
@@ -135,20 +138,20 @@ class Admin extends Controller {
 
     $project = DB::select( 'select picture from project where id = ?', [$id] );
 
-    unlink( ROOT . 'public/img/' . $project[0]['picture'] );
+    unlink( ROOT . 'public/img/' . $project[0]['picture'] ); // suppression image
 
     DB::delete( 'delete from project where id = ?', [$id]);
 
     header( 'Location: /admin' );
   }
-
+  // Modification d'un article existant
   public function editer( int $id ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
 
     $project = DB::select( 'select * from project where id = ?', [$id] );
-
+    // Gestion des erreurs
     if ( !$project ) {
       header( 'Location: /admin' );
     }
@@ -169,7 +172,7 @@ class Admin extends Controller {
         $erreur['body'] = 'Texte obligatoire';
       }
 
-      if ( !$erreur ) {
+      if ( !$erreur ) { // Si aucune erreur on modifie l'article
         DB::update( 'update project set title = :title, resume = :resume, body = :body where id = :id', [
           'title'  => $title,
           'resume' => $resume,
@@ -179,19 +182,19 @@ class Admin extends Controller {
 
         header( 'Location: /admin ');
       }
-      else {
+      else { // Transmition des erreurs à la vue
         $this->view( 'admin/editer', ['erreur' => $erreur, 'project' => $project[0]] );
       }
     }
 
     $this->view( 'admin/editer', ['project' => $project[0]] );
   }
-
+  // Modération des commentaires
   public function moderation( int $id ) {
     if ( !isset( $_SESSION['id'] ) ) {
       header( 'Location: /admin/connexion' );
     }
-
+    // On récupère le commentaire
     $comment = DB::select( 'select * from comments where id = ?', [$id] );
 
     if ( !$comment ) {
@@ -222,7 +225,7 @@ class Admin extends Controller {
 
     $this->view( 'admin/moderation', ['comment' => $comment[0]] );
   }
-
+  // Permet de vérifier les données de connexion
   private function accountExists() : array {
     $admin = DB::select( 'select id, password from admin where login = ?', [$_POST['login']] );
 
@@ -233,7 +236,7 @@ class Admin extends Controller {
       return [];
     }
   }
-
+  // Gère la modification du mot de passe
   public function newPassword() {
     if ( !isset( $_SESSION['id'] ) ) {
           header( 'Location: /admin/connexion' );
@@ -243,7 +246,7 @@ class Admin extends Controller {
       extract($_POST);
       $erreur = [];
       $success = [];
-
+      // gestion des erreurs
       if (empty($oldpassword)) {
         $erreur['oldpassword'] = 'Ancien mot de passe manquant !';
       }
@@ -264,7 +267,7 @@ class Admin extends Controller {
         $erreur['newpasswordconf'] = 'Confirmation du nouveau mot de passe différente !';
       }
 
-      if (!$erreur) {
+      if (!$erreur) { // on sauvegarde et on affiche un message
         $this->password_save();
         $success['validation'] = 'Nouveau mot de passe enregistré avec succès !';
       }   
@@ -274,7 +277,7 @@ class Admin extends Controller {
 
     $this->view( 'admin/newpassword' );
   }
-
+  // Contrôle du mot de passe pour modification
   private function password_ok() : bool {
     $admin = DB::select('SELECT password FROM admin WHERE id = 1');
 
@@ -286,7 +289,7 @@ class Admin extends Controller {
       return false;
     }
   }
-
+  // Gère l'enregistrement du mot de passe
   private function password_save(string $password = '', string $email = '') {
     $newpassword = $_POST['newpassword'] ?? $password;
 

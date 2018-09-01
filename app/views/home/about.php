@@ -1,3 +1,4 @@
+<!-- Page "Qui suis-je ?" -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,14 +16,14 @@
 
 		<!-- inclusion du menu -->
 		<?php include("nav.php"); ?>
-
+		<!-- Photo plein écran -->
 		<div class="wrapper">
 			<div class="content">
 				<h1>"QUI SUIS-JE ?"</h1>
 				<p>Entrez dans mon univers !</p>
 			</div>
 		</div>
-		
+		<!-- Flèche avec effet smoothscrol -->
 		<div class="drop-down">
 			<div id="down"></div>
 			<a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>

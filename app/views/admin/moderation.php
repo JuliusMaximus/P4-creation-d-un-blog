@@ -1,3 +1,4 @@
+<!-- Page de modération des commentaires -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -26,9 +27,11 @@
     </nav>
     <div class="container">
       <h1 class="text-xs-center">Commentaire</h1>
+      <!-- Affichage des erreurs -->
       <?php if ( isset( $data['erreur']['comment'] ) ) : ?>
         <div class="alert alert-danger"><?= $data['erreur']['comment'] ?></div>
       <?php endif; ?>
+      <!-- Formulaire -->
       <form action="" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
         <textarea name="comment" class="form-control" placeholder="commentaire"><?= $data['comment']['comment'] ?></textarea>
         <input type="submit" class="btn btn-success" value="Éditer">

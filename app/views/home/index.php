@@ -1,3 +1,4 @@
+<!-- Page d'accueil du site -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,14 +17,14 @@
 		<!-- inclusion du menu -->
 		<?php include("nav.php"); ?>
 		
-
+		<!-- Photos pleine page -->
 		<div class="wrapper">
 			<div class="content">
 				<h1>"Billet simple pour l'Alaska"</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque autem magni !</p>
 			</div>
 		</div>
-		
+		<!-- Flêche avec effet smoothScroll -->
 		<div class="drop-down">
 			<div id="down"></div>
 			<a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>

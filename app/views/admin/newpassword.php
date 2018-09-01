@@ -1,3 +1,4 @@
+<!-- Page de modification du mot de passe -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -21,6 +22,7 @@
       <h1 class="text-xs-center">Changer de mot de passe</h1>
       <div class="row justify-content-center">
         <div class="col-xl-4 col-xl-offset-4 col-md-6 col-md-offset-3">
+          <!-- Affichage des erreurs -->
           <?php if (isset($data['erreur']['oldpassword'])) : ?>
             <div class="alert alert-danger"><?= $data['erreur']['oldpassword'] ?></div>
           <?php endif; ?>
@@ -33,6 +35,7 @@
           <?php if (isset($data['success']['validation'])) : ?>
             <div class="alert alert-success"><?= $data['success']['validation'] ?></div>
           <?php endif; ?>
+          <!-- Formulaire -->
           <form action="/admin/newpassword" method="post" class="p-y-3 p-x-2" novalidate>
             <input type="password" name="oldpassword" class="form-control" placeholder="Ancien mot de passe">
             <input type="password" name="newpassword" class="form-control" placeholder="Nouveau mot de passe">

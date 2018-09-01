@@ -1,3 +1,4 @@
+<!-- Page d'édition des articles -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -26,6 +27,7 @@
     </nav>
     <div class="container">
       <h1 class="text-xs-center">Publications</h1>
+      <!-- Affichage des erreurs -->
       <?php if ( isset( $data['erreur']['title'] ) ) : ?>
         <div class="alert alert-danger"><?= $data['erreur']['title'] ?></div>
       <?php endif; ?>
@@ -35,6 +37,7 @@
       <?php if ( isset( $data['erreur']['body'] ) ) : ?>
         <div class="alert alert-danger"><?= $data['erreur']['body'] ?></div>
       <?php endif; ?>
+      <!-- Formulaire -->
       <form action="" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
         <input type="text" name="title" class="form-control" placeholder="Nom du projet" value="<?= $data['project']['title'] ?>">
         <label for="name">Résumé de la publication :</label><textarea name="resume" class="form-control" placeholder="resumé de la publication"><?= $data['project']['resume'] ?></textarea>

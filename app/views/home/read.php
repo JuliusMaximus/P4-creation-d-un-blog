@@ -1,3 +1,4 @@
+<!-- Page de l'article séléctionné -->
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -22,10 +23,12 @@
 	        <p><a href="/blog">Retour à la liste des billets</a></p>
 			
 			<div class="row d-flex justify-content-center">
+				<!-- Récupération et Construction de l'article et ses commentaires -->
 		        <?php
 		         foreach( $data['projects'] as $key => $project ) :
 		        ?>
 		        <div class="col-md-8">
+		        	<!-- Affichage des erreurs du formulaire -->
 		        	<?php if ( isset( $data['erreur']['author'] ) ) : ?>
 			            <div class="alert alert-danger"><?= $data['erreur']['author'] ?></div>
 		            <?php endif; ?>

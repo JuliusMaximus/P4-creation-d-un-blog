@@ -1,3 +1,4 @@
+<!-- Page d'accueil du Back office -->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -27,8 +28,10 @@
       </div>
     </nav>
     <div class="container mt-5">
+      <!-- Menu accordéon -->
       <div class="accordion" id="menu">
         <div class="card">
+          <!-- Section gestions des commentaires -->
           <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseComment" aria-expanded="true" aria-controls="collapseComment">
               <h2 class="text-xs-center h1">Commentaires</h2>
           </button>
@@ -37,6 +40,7 @@
             <div class="card-body">
               <div class="container">
                 <div class="row">
+                  <!-- Liste des commentaires -->
                   <table class="table table-striped">
                       <thead>
                         <tr>
@@ -49,6 +53,7 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <!-- Récupération et Construction de la liste-->
                         <?php
                         foreach($data['comments'] as $key => $comment) :
                         ?>
@@ -60,7 +65,7 @@
                           <td><a href="/admin/moderation/<?= $comment['id'] ?>" class="text-success">Modérer</a></td>
                           <td>
                             <?php
-                            if ( $comment['reported']) :
+                            if ( $comment['reported']) : // on affiche un icon si il a été signalé
                             ?>
                             <i class="fas fa-exclamation-triangle alert alert-danger"></i>
                             <?php
@@ -73,6 +78,7 @@
                         ?>
                       </tbody>
                     </table>
+                    <!-- Construction des liens de pagination -->
                     <?php 
                     for( $i = 1;$i <= $data['pagesTotal'];$i++ ) {
                       if( $i == $data['currentPage'] ) {
@@ -87,6 +93,7 @@
             </div>
           </div>
         </div>
+        <!-- Créations et liste articles  -->
         <div class="card mt-3">
           <button class="btn btn-success collapsed" type="button" data-toggle="collapse" data-target="#collapsePublication" aria-expanded="true" aria-controls="collapsePublication">
             <h2 class="text-xs-center h1">Publications</h2>
@@ -95,8 +102,10 @@
           <div id="collapsePublication" class="collapse" aria-labelledby="headingPublication" data-parent="#menu">
             <div class="card-body">
              <div class="container">
+                <!-- Formilaire de crétion d'articles -->
                 <div class="row">
                   <div class="col-md-6">
+                    <!-- affichage des erreurs de formulaire -->
                     <?php if ( isset( $data['erreur']['title'] ) ) : ?>
                       <div class="alert alert-danger"><?= $data['erreur']['title'] ?></div>
                     <?php endif; ?>
@@ -109,6 +118,7 @@
                     <?php if ( isset( $data['erreur']['picture'] ) ) : ?>
                       <div class="alert alert-danger"><?= $data['erreur']['picture'] ?></div>
                     <?php endif; ?>
+                    <!-- Formulaire -->
                     <form action="/admin" method="post" class="p-y-3 p-x-2" enctype="multipart/form-data" novalidate>
                       <input type="text" name="title" class="form-control" placeholder="Titre de la publication" value="<?php if ( isset( $_POST['title'] ) ) echo $_POST['title'] ?>">
                       <label for="name">Résumé de la publication :</label><textarea name="resume" class="form-control" placeholder="Résumé de la publication" value = "<?php if ( isset( $_POST['resume'] ) ) echo $_POST['resume'] ?>" ></textarea>
@@ -117,6 +127,7 @@
                       <input type="submit" class="btn btn-success" value="Publier">
                     </form>
                   </div>
+                  <!-- Liste des articles -->
                   <div class="col-md-6">
                     <table class="table table-striped">
                       <thead>

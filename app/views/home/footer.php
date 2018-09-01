@@ -1,7 +1,5 @@
-
-
-
 <footer>
+		<!-- Liens du site -->
 		<div class="row" id="footer_links">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex justify-content-center mt-5 pt-4">
@@ -14,6 +12,7 @@
 				</ul>
 			</div>
 		</div>
+		<!-- Réseau sociaux -->
 		<div class="row">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex flex-column align-items-center mb-5">
@@ -25,6 +24,7 @@
 				</ul>
 			</div>
 		</div>
+		<!-- Copyright -->
 		<div class="row">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex justify-content-center mt-4">

@@ -3,14 +3,15 @@ class contact extends Controller {
   public function index() {
     $this->view( 'home/contact', [] );
   }
-
+  // Gestion du formulaire de contact
+  // et envoie de l'email à l'administrateur
   public function mail_contact() {
 
     if ( !empty( $_POST ) ) {
       extract( $_POST );
       $erreur = [];
       $success = [];
-
+      // Gestion des erreurs du formulaire
       if (empty($name)) {
         $erreur['name'] = 'Nom manquant !';
       }
@@ -26,7 +27,7 @@ class contact extends Controller {
     	  $erreur['message'] = 'Message manquant !';
     	}
 
-      if ( empty($erreur) ) {
+      if ( empty($erreur) ) { // aucune erreur -> envoie du mail à l'admin
         $success['mailSend']= 'Votre message a bien été envoyé !';
         
         $emailMessage = '
@@ -50,7 +51,7 @@ class contact extends Controller {
 
         mail( $destinataire, 'Nouveau message', $emailMessage, $headers );
       }
-
+      // Transmition des données à la vue
       $this->view( 'home/contact', ['erreur' => $erreur, 'success' => $success] );
 	  } 
   }

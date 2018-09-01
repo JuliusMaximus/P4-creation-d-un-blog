@@ -1,5 +1,6 @@
 <?php
 class Home extends Controller {
+  //Récupération et transmition du dernier article sur la page d'accueil
   public function index() {
   	$projects = DB::select('SELECT * FROM project ORDER BY id DESC LIMIT 1');
 

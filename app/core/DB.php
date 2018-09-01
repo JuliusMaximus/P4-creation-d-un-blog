@@ -1,4 +1,5 @@
 <?php
+// Gestion de la communication avec la BDD
 class DB extends PDO {
   const DSN = 'mysql:host=localhost;dbname=tutoadmin';
   const USER = 'root';
