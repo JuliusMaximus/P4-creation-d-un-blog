@@ -79,7 +79,7 @@
                       </tbody>
                     </table>
                     <!-- Construction des liens de pagination -->
-                    <nav aria-label="Page navigation example">
+                    <nav aria-label="Page commentaires">
                       <ul class="pagination">
                         <li class="page-item">
                           <a class="page-link text-success" href="/admin/<?= $data['currentPage'] - 1 ?>" aria-label="Precedent">

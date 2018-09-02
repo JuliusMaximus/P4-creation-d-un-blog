@@ -19,15 +19,17 @@
 
 		</header>
 		<section>
-			<h1>Mon super blog !</h1>
-	        <p><a href="/blog">Retour à la liste des billets</a></p>
+			<h1>Billet simple pour l'Alaska</h1>
+        	<p><a href="/blog">Retour à la liste des billets</a></p>
+        
 			
-			<div id="publication" class="row d-flex justify-content-center mb-5" data-spy="scroll" data-offset="0">
+			<div id="publication" class="row d-flex justify-content-center mb-5">
+				<div id="barre-1"><div class="progression"></div><div class="pourcentage"></div></div>
 				<!-- Récupération et Construction de l'article et ses commentaires -->
 		        <?php
 		         foreach( $data['projects'] as $key => $project ) :
 		        ?>
-		        <div class="col-md-8">
+		        <div class="col-md-8 mt-5">
 		        	<!-- Affichage des erreurs du formulaire -->
 		        	<?php if ( isset( $data['erreur']['author'] ) ) : ?>
 			            <div class="alert alert-danger"><?= $data['erreur']['author'] ?></div>
@@ -41,11 +43,11 @@
 			            	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			            </div>
 			        <?php endif; ?>
-		          <article>
-		            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
-		            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
-		            <p class="lead text-justify"><?= $project['body'] ?></p>
-		          </article>
+			        <article>
+			            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
+			            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
+			            <p class="lead text-justify"><?= $project['body'] ?></p>
+			        </article>
 		        </div>
 		        <?php
 		        if( $key % 2 == 1 ) {

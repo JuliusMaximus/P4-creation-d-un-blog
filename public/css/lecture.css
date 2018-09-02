@@ -49,10 +49,36 @@ section {
   padding: 1rem; }
 
 #publication {
-  position: relative;
-  height: 30rem;
-  overflow-y: scroll; }
+  position: relative; }
 
+/*-------------Progression Bar--------------*/
+#barre-1 {
+  z-index: 1000;
+  position: fixed;
+  top: 6rem;
+  height: 1.5rem;
+  width: 100%;
+  background: #bcbcbc;
+  border: 2px solid #bcbcbc; }
+
+#barre-1 .progression {
+  background: #007db7;
+  width: 0%;
+  height: 100%;
+  transition: width 0.3s; }
+
+#barre-1 .pourcentage {
+  position: absolute;
+  top: 0;
+  font-size: 1.3rem;
+  line-height: 1rem;
+  text-align: center;
+  width: 100%;
+  color: #fff; }
+
+@media all and (max-width: 992px) {
+  #barre-1 {
+    top: 5.4rem; } }
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
 ----------------------------------------------------------------*/
