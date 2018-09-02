@@ -70,7 +70,7 @@ class Read extends Controller {
           $comments[$key]['comment'] = nl2br( $comment['comment'] );
         }
 
-        header( 'Location: /read/blog/' . $id );
+        header( 'Location: /read/blog/' . $id . '#comments');
       }
       $this->view( 'home/read', ['erreur' => $erreur, 'projects' => $projects, 'comments' => $comments] );
     }
@@ -78,7 +78,7 @@ class Read extends Controller {
     $this->view( 'home/read', ['projects' => $projects, 'comments' => $comments] );
   }
   // Signalement d'un commentaire 
-  public function report( int $id, int $idProject) {
+  public function report( int $id, int $idProject, int $page = 1) {
     $projects = DB::select( 'select * from project where id = ?', [$idProject]);
 
     foreach ( $projects as $key => $project ) {
@@ -87,7 +87,21 @@ class Read extends Controller {
       $projects[$key]['body'] = nl2br( $project['body'] );
     }
 
-    $comments = DB::select('select * from comments where id_project = ? order by id desc', [$idProject]);
+    // pagination de la liste des commentaires
+    $perPage = 3;
+    $total = DB::selectAndCount( 'select id from comments where id_project = ?', [$idProject] ); // récupération du nombre de ligne
+    $pagesTotal = ceil( $total/$perPage ); // calcule du nombre de page
+    // définition de la page courante
+    if( isset( $page) && !empty( $page) &&  $page > 0 &&  $page <= $pagesTotal ) {
+      $currentPage =  $page;
+    } else {
+      $currentPage = 1;
+    }
+    // définition du premier commentaire de la page
+    $start = ($currentPage - 1) * $perPage;
+    // Récupération des commentaires suivant la page demandée
+    $comments = DB::selectWithLimit( 'select * from comments where id_project = :id order by id desc limit :start, :perPage', $start, $perPage, $idProject);
+
     foreach ( $comments as $key => $comment ) {
       $date = date_create( $comment['created_at'] );
       $comments[$key]['created_at'] = date_format( $date, 'd/m/Y H:i' );
@@ -102,9 +116,9 @@ class Read extends Controller {
 
     $success['send'] = "Commentaire signaler";
 
-    $this->view( 'home/read', ['success' => $success, 'projects' => $projects, 'comments' => $comments] );
+    $this->view( 'home/read', ['success' => $success, 'projects' => $projects, 'comments' => $comments, 'currentPage' => $currentPage, 'pagesTotal' => $pagesTotal] );
 
-    unset($success);
+    header( 'Location: /read/blog/' . $idProject);
   }
 
 }
