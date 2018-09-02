@@ -30,15 +30,23 @@ class DB extends PDO {
     return $data;
   }
 
-  public static function selectWithLimit ( string $query, int $start, int $perPage, int $id = 1 ) : array {
+  public static function selectWithLimit ( string $query, int $start, int $perPage, int $id = NULL ) : array {
     $bdd = new DB;
 
+    if (isset( $id )) {
+      $req = $bdd->prepare( $query );
+      $req->bindValue('start', $start, PDO::PARAM_INT);
+      $req->bindValue('perPage', $perPage, PDO::PARAM_INT);
+      $req->bindValue('id', $id);
+      $req->execute();
+    }
+    else {
+      $req = $bdd->prepare( $query );
+      $req->bindValue('start', $start, PDO::PARAM_INT);
+      $req->bindValue('perPage', $perPage, PDO::PARAM_INT);
+      $req->execute();
+    }
     
-    $req = $bdd->prepare( $query );
-    $req->bindValue('start', $start, PDO::PARAM_INT);
-    $req->bindValue('perPage', $perPage, PDO::PARAM_INT);
-    $req->bindValue('id', $id);
-    $req->execute();
     
 
     $data = $req->fetchAll();
