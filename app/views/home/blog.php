@@ -34,7 +34,7 @@
         <?php
         foreach( $data['projects'] as $key => $project ) :
         ?>
-        <div class="mt-4 p-4">
+        <div id="list" class="mt-4 p-4">
           <article>
             <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> Le <time><?= $project['created_at'] ?></time></span></h1>  
             <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
@@ -53,7 +53,7 @@
       <div aria-label="Page publications">
         <ul class="pagination">
           <li class="page-item">
-            <a class="page-link" href="/blog/<?= $data['currentPage'] - 1 ?>" aria-label="Precedent">
+            <a class="page-link" href="/blog/<?= $data['currentPage'] - 1 ?>#list" aria-label="Precedent">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Precedent</span>
             </a>
@@ -62,15 +62,15 @@
           for( $i = 1;$i <= $data['pagesTotal'];$i++ ) :
           ?>
           <?php if ($i == $data['currentPage']) : ?>
-          <li class="page-item active"><a class="page-link" href="/blog/<?= $i ?>"><?= $i ?></a></li>
+          <li class="page-item active"><a class="page-link" href="/blog/<?= $i ?>#list"><?= $i ?></a></li>
           <?php else: ?>
-          <li class="page-item"><a class="page-link" href="/blog/<?= $i ?>"><?= $i ?></a></li>
+          <li class="page-item"><a class="page-link" href="/blog/<?= $i ?>#list"><?= $i ?></a></li>
           <?php endif; ?>
           <?php
           endfor;
           ?>
           <li class="page-item">
-            <a class="page-link" href="/blog/<?= $data['currentPage'] + 1 ?>" aria-label="suivant">
+            <a class="page-link" href="/blog/<?= $data['currentPage'] + 1 ?>#list" aria-label="suivant">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">suivant</span>
             </a>
