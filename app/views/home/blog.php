@@ -49,6 +49,34 @@
         endforeach;
         ?>
       </div>
+      <!-- Construction des liens de pagination -->
+      <div aria-label="Page publications">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="/blog/<?= $data['currentPage'] - 1 ?>" aria-label="Precedent">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Precedent</span>
+            </a>
+          </li>
+          <?php 
+          for( $i = 1;$i <= $data['pagesTotal'];$i++ ) :
+          ?>
+          <?php if ($i == $data['currentPage']) : ?>
+          <li class="page-item active"><a class="page-link" href="/blog/<?= $i ?>"><?= $i ?></a></li>
+          <?php else: ?>
+          <li class="page-item"><a class="page-link" href="/blog/<?= $i ?>"><?= $i ?></a></li>
+          <?php endif; ?>
+          <?php
+          endfor;
+          ?>
+          <li class="page-item">
+            <a class="page-link" href="/blog/<?= $data['currentPage'] + 1 ?>" aria-label="suivant">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">suivant</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <hr>
     <!-- inclusion du footer -->

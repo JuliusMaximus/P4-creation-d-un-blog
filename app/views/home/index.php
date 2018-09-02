@@ -43,7 +43,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title"><?= $project['title'] ?></h5>
 		    <p class="card-text"><?= $project['resume'] ?></p>
-		    <a href="/read/blog?<?= $project['id']; ?>" class="btn btn-primary"><i class="fas fa-book-open"></i> Lire</a>
+		    <a href="/read/blog/<?= $project['id']; ?>" class="btn btn-primary"><i class="fas fa-book-open"></i> Lire</a>
 		  </div>
 		  <div class="card-footer text-muted">
 		    Le <?= $project['created_at'] ?>
