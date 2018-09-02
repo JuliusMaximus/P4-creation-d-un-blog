@@ -40,7 +40,7 @@
             <a class="btn btn-success m-4" href="/admin"><i class="fas fa-sync-alt"></i>&nbsp;Actualiser</a>
             <div class="card-body">
               <div class="container">
-                <div class="row">
+                <div class="row table-responsive">
                   <!-- Liste des commentaires -->
                   <table class="table table-striped">
                       <thead>
@@ -137,7 +137,7 @@
              <div class="container">
                 <!-- Formilaire de crétion d'articles -->
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-lg-6">
                     <!-- affichage des erreurs de formulaire -->
                     <?php if ( isset( $data['erreur']['title'] ) ) : ?>
                       <div class="alert alert-danger"><?= $data['erreur']['title'] ?></div>
@@ -161,7 +161,7 @@
                     </form>
                   </div>
                   <!-- Liste des articles -->
-                  <div id="list" class="col-md-6" data-spy="scroll" data-offset="0">
+                  <div id="list" class="col-lg-6" data-spy="scroll" data-offset="0">
                     <table class="table table-striped">
                       <thead>
                         <tr>
