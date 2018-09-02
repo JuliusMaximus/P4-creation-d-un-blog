@@ -3,7 +3,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Gestion des publications</title>
+    <title>Esapace d'administration</title>
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700,300">
     <link rel="stylesheet" href="/css/admin.css">
@@ -37,6 +37,7 @@
           </button>
           
           <div id="collapseComment" class="collapse show" aria-labelledby="headingComment" data-parent="#menu">
+            <a class="btn btn-success m-4" href="/admin"><i class="fas fa-sync-alt"></i>&nbsp;Actualiser</a>
             <div class="card-body">
               <div class="container">
                 <div class="row">
@@ -48,6 +49,7 @@
                           <th>Date</th>
                           <th>Auteur</th>
                           <th>Commentaire</th>
+                          <th>Valider</th>
                           <th>Modérer</th>
                           <th></th>
                         </tr>
@@ -62,6 +64,19 @@
                           <td><?= $comment['created_at'] ?></td>
                           <td><?= $comment['author'] ?></td>
                           <td><?= $comment['comment'] ?></td>
+                          <td>
+                            <?php
+                            if ( !$comment['validate']) : // on affiche un icon grisé si iln'est pas validé
+                            ?>
+                            <a href="/admin/validate/<?= $comment['id'] ?>"><i class="far fa-check-square fa-2x"></i></a>
+                            <?php 
+                            else : // sinon icon vert
+                            ?>
+                            <i class="fas fa-check-square fa-2x"></i>
+                            <?php
+                            endif;
+                            ?>
+                          </td>
                           <td><a href="/admin/moderation/<?= $comment['id'] ?>" class="text-success">Modérer</a></td>
                           <td>
                             <?php
@@ -146,7 +161,7 @@
                     </form>
                   </div>
                   <!-- Liste des articles -->
-                  <div class="col-md-6">
+                  <div id="list" class="col-md-6" data-spy="scroll" data-offset="0">
                     <table class="table table-striped">
                       <thead>
                         <tr>

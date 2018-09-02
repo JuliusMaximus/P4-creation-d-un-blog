@@ -117,8 +117,6 @@ class Read extends Controller {
     $success['send'] = "Commentaire signaler";
 
     $this->view( 'home/read', ['success' => $success, 'projects' => $projects, 'comments' => $comments, 'currentPage' => $currentPage, 'pagesTotal' => $pagesTotal] );
-
-    header( 'Location: /read/blog/' . $idProject);
   }
 
 }

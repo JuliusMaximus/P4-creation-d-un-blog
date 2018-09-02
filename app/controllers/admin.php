@@ -223,6 +223,18 @@ class Admin extends Controller {
 
     $this->view( 'admin/moderation', ['comment' => $comment[0]] );
   }
+
+  // Validation des commentaires
+  public function validate( int $id ) {
+    if ( !isset( $_SESSION['id'] ) ) {
+      header( 'Location: /admin/connexion' );
+    }
+    else {
+      DB::update( 'update comments set validate = 1 where id = ?', [$id] );
+
+      header( 'Location: /admin ');
+    }
+  }
   // Permet de vérifier les données de connexion
   private function accountExists() : array {
     $admin = DB::select( 'select id, password from admin where login = ?', [$_POST['login']] );

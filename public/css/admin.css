@@ -47,4 +47,15 @@ input[type=submit] {
 h1 {
   margin-top: 3rem; }
 
+#list {
+  position: relative;
+  height: auto;
+  overflow-y: scroll; }
+
+.fas.fa-check-square {
+  color: #218838; }
+
+.far.fa-check-square {
+  color: #919191; }
+
 /*# sourceMappingURL=admin.css.map */
