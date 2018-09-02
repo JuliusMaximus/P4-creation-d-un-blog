@@ -51,6 +51,9 @@ section {
 #publication {
   position: relative; }
 
+#commentContainer {
+  margin-top: 4.5rem; }
+
 /*-------------Progression Bar--------------*/
 #barre-1 {
   z-index: 1000;
@@ -58,11 +61,11 @@ section {
   top: 6rem;
   height: 1.5rem;
   width: 100%;
-  background: #bcbcbc;
-  border: 2px solid #bcbcbc; }
+  background: rgba(188, 188, 188, 0.7);
+  border: 2px solid rgba(188, 188, 188, 0.7); }
 
 #barre-1 .progression {
-  background: #007db7;
+  background: rgba(70, 156, 214, 0.7);
   width: 0%;
   height: 100%;
   transition: width 0.3s; }

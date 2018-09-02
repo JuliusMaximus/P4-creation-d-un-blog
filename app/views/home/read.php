@@ -20,16 +20,14 @@
 		</header>
 		<section>
 			<h1>Billet simple pour l'Alaska</h1>
-        	<p><a href="/blog">Retour à la liste des billets</a></p>
-        
-			
+        	<p><a href="/blog">Retour à la liste des billets</a></p>	
 			<div id="publication" class="row d-flex justify-content-center mb-5">
 				<div id="barre-1"><div class="progression"></div><div class="pourcentage"></div></div>
 				<!-- Récupération et Construction de l'article et ses commentaires -->
 		        <?php
 		         foreach( $data['projects'] as $key => $project ) :
 		        ?>
-		        <div class="col-md-8 mt-5">
+		        <div class="col-md-8 mt-5 mb-5">
 		        	<!-- Affichage des erreurs du formulaire -->
 		        	<?php if ( isset( $data['erreur']['author'] ) ) : ?>
 			            <div class="alert alert-danger"><?= $data['erreur']['author'] ?></div>
@@ -57,7 +55,7 @@
 		        ?>
 		    </div>
 			<hr id="comments">
-	        <div id="comments" class="container mt-5">
+	        <div id="commentContainer" class="container">
 	        	<div class="row">
 	        		<div class="col-sm-6 col-md-4 mt-5">
 	        		  <h4>Poster un commentaire</h4>
