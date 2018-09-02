@@ -42,7 +42,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="message">Votre message</label>
-		    <textarea class="form-control" id="message" name="message" rows="3" value="<?php if ( isset( $_POST['message'] ) ) echo $_POST['message'] ?>"></textarea>
+		    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
 		  </div>
 		  <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
 		</form>

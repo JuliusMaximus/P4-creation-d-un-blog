@@ -36,7 +36,7 @@
             <div class="alert alert-success"><?= $data['success']['validation'] ?></div>
           <?php endif; ?>
           <!-- Formulaire -->
-          <form action="/admin/newpassword" method="post" class="p-y-3 p-x-2" novalidate>
+          <form action="/admin/newPassword" method="post" class="p-y-3 p-x-2" novalidate>
             <input type="password" name="oldpassword" class="form-control" placeholder="Ancien mot de passe">
             <input type="password" name="newpassword" class="form-control" placeholder="Nouveau mot de passe">
             <input type="password" name="newpasswordconf" class="form-control" placeholder="Confirmez le nouveau mot de passe">

@@ -31,7 +31,7 @@
 
 	</header>
 	<section>
-		<h2 id="down">Non est enim vitium in oratione solum, sed etiam in moribus.</h2>
+		<h2>Non est enim vitium in oratione solum, sed etiam in moribus.</h2>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duo Reges: constructio interrete. Nam ista vestra: Si gravis, brevis; Propter nos enim illam, non propter eam nosmet ipsos diligimus. Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Hoc loco tenere se Triarius non potuit. Quis est tam dissimile homini. </p>
 

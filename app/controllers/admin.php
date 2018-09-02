@@ -300,21 +300,12 @@ class Admin extends Controller {
     }
   }
   // Gère l'enregistrement du mot de passe
-  private function password_save(string $password = '', string $email = '') {
+  private function password_save(string $password = '') {
     $newpassword = $_POST['newpassword'] ?? $password;
 
-    if (isset($email)) {
-      // gestion oubli de mdp
-      DB::update('UPDATE admin SET password = :password WHERE mail = :email', [
-        'password' => password_hash($newpassword, PASSWORD_DEFAULT),
-        'email'    => $email
-      ]);
-    }
-    else {
-      // gestion pour changement de mdp
-      DB::update('UPDATE admin SET password = :password WHERE id = 1', [
+    DB::update('UPDATE admin SET password = :password WHERE id = 1', [
         'password' => password_hash($newpassword, PASSWORD_DEFAULT)
       ]);
-    }
+  
   }
 }

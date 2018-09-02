@@ -42,7 +42,7 @@
 			            </div>
 			        <?php endif; ?>
 			        <article>
-			            <h1 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> <time><?= $project['created_at'] ?></time></span></h1>
+			            <h2 class="h3"><?= $project['title'] ?> <span class="text-muted lead"><?= $project['created_at'] ?></span></h2>
 			            <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">
 			            <p class="lead text-justify"><?= $project['body'] ?></p>
 			        </article>
@@ -61,7 +61,7 @@
 	        		  <h4>Poster un commentaire</h4>
 			          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate>
 			            <input class="mb-3" type="text" name="author" class="form-control" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
-			            <textarea class="mb-3" type="text" name="comment" class="form-control" placeholder="Votre commentaire" rows="3"></textarea><br>
+			            <textarea class="mb-3" name="comment" class="form-control" placeholder="Votre commentaire" rows="3"></textarea><br>
 			            <input type="submit" class="btn btn-success" value="Envoyer">
 			          </form>
 			        </div>
@@ -71,7 +71,7 @@
 				         foreach( $data['comments'] as $key => $comment ) :
 				        ?>
 				        <article>
-				           <b><?= $comment['author'] ?></b> <span class="font-weight-light"> <time> Le <?= $comment['created_at'] ?></time></span>&#32;<small><a href="/read/report/<?= $comment['id'] ?>/<?= $project['id'] ?>">Signaler</a></small>
+				           <b><?= $comment['author'] ?></b> <span class="font-weight-light"> Le <?= $comment['created_at'] ?></span>&#32;<small><a href="/read/report/<?= $comment['id'] ?>/<?= $project['id'] ?>">Signaler</a></small>
 				           <p class="lead text-justify"><?= $comment['comment'] ?></p>
 				           <hr>
 				        </article>

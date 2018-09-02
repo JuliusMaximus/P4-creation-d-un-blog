@@ -55,7 +55,7 @@
 	<section id="paysage">
 		<div class="wrapper">
 			<div class="content">
-				<h1>"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."</h1>
+				<h2 class="h1" >"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."</h2>
 				<p class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></p>
 			</div>
 		</div>
