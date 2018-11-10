@@ -56,8 +56,8 @@
 		    </div>
 			<hr id="comments">
 	        <div id="commentContainer" class="container">
-	        	<div class="row">
-	        		<div class="col-sm-6 col-md-4 mt-5">
+	        	<div class="row justify-content-between">
+	        		<div class="col-5 col-sm-5 col-md-4 col-lg-3 mt-5">
 	        		  <h3 class="h4">Poster un commentaire</h3>
 			          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate role="form">
 			            <input class="mb-3" type="text" name="author" class="form-control" aria-label="auteur" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
@@ -65,7 +65,7 @@
 			            <input type="submit" class="btn btn-primary" value="Envoyer">
 			          </form>
 			        </div>
-		        	<div class="col-sm-6 col-md-8 mt-5">
+		        	<div class="col-sm-6 col-md-8 col-lg-8 mt-5">
 			        	<h3>Commentaires</h3>
 				        <?php
 				         foreach( $data['comments'] as $key => $comment ) :
