@@ -80,7 +80,7 @@ nav.scrolling {
   border-radius: 0 !important; }
 
 .card-header, .card-footer {
-  background-color: #469CD6 !important;
+  background-color: #0066cc !important;
   color: #fff !important;
   border-radius: 0 !important; }
 
@@ -98,6 +98,9 @@ nav.scrolling {
 #test {
   height: 30rem; }
 
+.btn.btn-primary {
+  background: #0066cc; }
+
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
 ----------------------------------------------------------------*/
@@ -107,6 +110,9 @@ footer {
 footer div.row:last-child {
   background-color: #469CD6 !important;
   color: #fff !important; }
+
+#footer_links ul li a {
+  color: #0066cc; }
 
 #footer_links ul li:after {
   content: "/";

@@ -95,32 +95,31 @@ nav.scrolling { /* la class .scrolling est ajouter via le fichier js */
     background-color: rgba(70,156,214,0.9);
 }
 
+
+
+/*----------------------------------------------------------------
+------------------------------section liste articles------------------------------
+----------------------------------------------------------------*/
 section {
 	padding: 4rem 1rem;
 }
 
 
-/*----------------------------------------------------------------
-------------------------------media------------------------------
-----------------------------------------------------------------*/
-
 section p {
 	margin-bottom: 4rem;
 }
 
-.media {
-	border: 1px solid #969696;
-	margin: 1rem 0;
-	padding: 1rem;
-	box-shadow: 1px 1px 5px #000;
-	transition: all .8s ease;
-	&:hover {
-		border: 1px solid $color-principal;
-		padding: 1rem;
-		box-shadow: 1px 1px 2px #000;
-	}
+.btn.btn-primary {
+	background: #0066cc;
 }
 
+.pagination li a {
+	color: #0066cc;
+}
+
+.page-item.active .page-link {
+	background: #0066cc !important;
+}
 
 
 /*----------------------------------------------------------------
@@ -142,6 +141,10 @@ footer div.row:last-child {
 
 #footer_links ul li:last-child:after {
 	content: "";
+}
+
+#footer_links ul li a {
+	color: #0066cc;
 }
 
 footer .row {

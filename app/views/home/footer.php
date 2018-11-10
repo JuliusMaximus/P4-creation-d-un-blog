@@ -1,4 +1,4 @@
-<footer>
+<footer role="contentinfo">
 		<!-- Liens du site -->
 		<div class="row" id="footer_links">
 			<div class="col-lg-3"></div>
@@ -16,7 +16,7 @@
 		<div class="row">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6 d-flex flex-column align-items-center mb-5">
-				<h6 class="pl-5">Suivez moi sur:</h6>
+				<h3 class="pl-5 h6">Suivez moi sur:</h3>
 				<ul>
 					<li><a href="#"><img src="/public/img/facebook-icon.png" alt="icone facebook"></a></li>
 					<li class="pl-3"><a href="#"><img src="/public/img/instagram-icon.png" alt="icone instagram"></a></li>

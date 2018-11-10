@@ -12,7 +12,7 @@
 </head>
 <body>
 	
-	<header>
+	<header role="banner">
 
 		<!-- inclusion du menu -->
 		<?php include("nav.php"); ?>
@@ -26,11 +26,11 @@
 		<!-- Flèche avec effet smoothscrol -->
 		<div class="drop-down">
 			<div id="down"></div>
-			<a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>
+			<a href="#down" aria-label="Flêche vers le bas"><i class="fas fa-angle-down fa-3x"></i></a>
 		</div>
 
 	</header>
-	<section>
+	<section role="main">
 		<h2>Non est enim vitium in oratione solum, sed etiam in moribus.</h2>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duo Reges: constructio interrete. Nam ista vestra: Si gravis, brevis; Propter nos enim illam, non propter eam nosmet ipsos diligimus. Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Hoc loco tenere se Triarius non potuit. Quis est tam dissimile homini. </p>

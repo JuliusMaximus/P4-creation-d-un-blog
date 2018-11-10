@@ -11,7 +11,7 @@
   <title>Le blog</title>
 </head>
   <body>
-    <header>
+    <header role="banner">
       <!-- inclusion du menu -->
       <?php include("nav.php"); ?>
       <!-- Photo pleine page -->
@@ -24,18 +24,18 @@
       <!-- Flèche avec effet smoothScroll -->
       <div class="drop-down">
         <div id="down"></div>
-        <a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>
+        <a href="#down" aria-label="Flêche vers le bas"><i class="fas fa-angle-down fa-3x"></i></a>
       </div>
 
     </header>
-    <div class="container">
+    <div class="container" role="main">
       <div class="row mt-4">
         <div id="list"></div>
         <!-- Récupération et construction des articles sur la page -->
         <?php
         foreach( $data['projects'] as $key => $project ) :
         ?>
-        <div class="mt-4 p-4">
+        <div class="container mt-4 p-4">
           <article>
             <h2 class="h3"><?= $project['title'] ?> <span class="text-muted lead"> Le <?= $project['created_at'] ?></span></h2>  
             <img class="img-fluid" src="/img/imgArticles/<?= $project['picture'] ?>" alt="<?= $project['picture'] ?>">

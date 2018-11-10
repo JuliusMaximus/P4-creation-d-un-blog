@@ -53,6 +53,9 @@ form {
   padding-left: 1rem;
   padding-right: 1rem; }
 
+.btn.btn-primary {
+  background: #0066cc; }
+
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
 ----------------------------------------------------------------*/
@@ -62,6 +65,9 @@ footer {
 footer div.row:last-child {
   background-color: #469CD6 !important;
   color: #fff !important; }
+
+#footer_links ul li a {
+  color: #0066cc; }
 
 #footer_links ul li:after {
   content: "/";

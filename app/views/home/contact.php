@@ -12,15 +12,15 @@
 </head>
 <body>
 	
-	<header>
+	<header role="banner">
 
 		<!-- inclusion du menu -->
 		<?php include("nav.php"); ?>
 		
 	</header>
-	<div class="container">
-		<h1 class="text-xs-center">Formulaire de contact</h1>
-		<form action="/contact/mail_contact" method="post" class="mt-5 mb-5">
+	<div class="container" role="main">
+		<h1 class="text-xs-center mt-5">Formulaire de contact</h1>
+		<form action="/contact/mail_contact" method="post" class="mt-5 mb-5" role="form">
 			<!-- Affichage des erreurs -->
 		  <?php if ( isset( $data['erreur']['name'] ) ) : ?>
 		    <div class="alert alert-danger"><?= $data['erreur']['name'] ?></div>
@@ -47,7 +47,7 @@
 		  <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
 		</form>
 	</div>
-	<hr>
+	<hr >
 	
 	<!-- inclusion du footer -->
 	<?php include("footer.php"); ?>

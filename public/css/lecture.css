@@ -13,6 +13,12 @@ ul li {
   list-style-type: none;
   display: inline-flex; }
 
+.pagination li a, small a {
+  color: #0066cc; }
+
+.btn.btn-primary, .page-item.active .page-link {
+  background: #0066cc !important; }
+
 /*----------------------------------------------------------------
 ------------------------------header------------------------------
 ----------------------------------------------------------------*/
@@ -59,6 +65,7 @@ section {
   z-index: 1000;
   position: fixed;
   top: 6rem;
+  left: 0;
   height: 1.5rem;
   width: 100%;
   background: rgba(188, 188, 188, 0.7);
@@ -91,6 +98,9 @@ footer {
 footer div.row:last-child {
   background-color: #469CD6 !important;
   color: #fff !important; }
+
+#footer_links ul li a {
+  color: #0066cc; }
 
 #footer_links ul li:after {
   content: "/";

@@ -12,13 +12,13 @@
 	</head>
 	<body>
 		
-		<header>
+		<header role="banner">
 
 			<!-- inclusion du menu -->
 			<?php include("nav.php"); ?>
 
 		</header>
-		<section>
+		<section role="main">
 			<h1>Billet simple pour l'Alaska</h1>
         	<p><a href="/blog">Retour à la liste des billets</a></p>	
 			<div id="publication" class="row d-flex justify-content-center mb-5">
@@ -58,11 +58,11 @@
 	        <div id="commentContainer" class="container">
 	        	<div class="row">
 	        		<div class="col-sm-6 col-md-4 mt-5">
-	        		  <h4>Poster un commentaire</h4>
-			          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate>
-			            <input class="mb-3" type="text" name="author" class="form-control" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
-			            <textarea class="mb-3" name="comment" class="form-control" placeholder="Votre commentaire" rows="3"></textarea><br>
-			            <input type="submit" class="btn btn-success" value="Envoyer">
+	        		  <h3 class="h4">Poster un commentaire</h3>
+			          <form action="/read/insertComment/<?= $project['id'] ?>" method="post" class="p-y-3 p-x-2" novalidate role="form">
+			            <input class="mb-3" type="text" name="author" class="form-control" aria-label="auteur" placeholder="Votre nom ou pseudo" value="<?php if ( isset( $_POST['author'] ) ) echo $_POST['author'] ?>">
+			            <textarea class="mb-3" name="comment" class="form-control" aria-label="commentaire" placeholder="Votre commentaire" rows="3"></textarea><br>
+			            <input type="submit" class="btn btn-primary" value="Envoyer">
 			          </form>
 			        </div>
 		        	<div class="col-sm-6 col-md-8 mt-5">

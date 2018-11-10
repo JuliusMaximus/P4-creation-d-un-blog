@@ -1,7 +1,7 @@
 
 
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" role="navigation">
 			<nav class="navbar navbar-expand-lg navbar-dark col-sm fixed-top">
 				
 			  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">

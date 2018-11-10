@@ -105,7 +105,7 @@ nav.scrolling { /* la class .scrolling est ajouter via le fichier js */
 }
 
 .card-header, .card-footer {
-	background-color: $color-principal !important;
+	background-color: #0066cc !important;
 	color: $header-text-color !important;
 	border-radius: 0 !important;
 }
@@ -123,6 +123,10 @@ nav.scrolling { /* la class .scrolling est ajouter via le fichier js */
 #test {
 	height: 30rem;
 }
+
+.btn.btn-primary {
+	background: #0066cc;
+}
 /*----------------------------------------------------------------
 ------------------------------footer------------------------------
 ----------------------------------------------------------------*/
@@ -133,6 +137,10 @@ footer {
 footer div.row:last-child {
 	background-color: $color-principal !important;
 	color:  $header-text-color !important;
+}
+
+#footer_links ul li a {
+	color: #0066cc;
 }
 
 #footer_links ul li:after {

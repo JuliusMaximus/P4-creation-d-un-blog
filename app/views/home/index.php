@@ -12,7 +12,7 @@
 </head>
 <body>
 	
-	<header>
+	<header role="banner">
 
 		<!-- inclusion du menu -->
 		<?php include("nav.php"); ?>
@@ -27,12 +27,12 @@
 		<!-- Flêche avec effet smoothScroll -->
 		<div class="drop-down">
 			<div id="down"></div>
-			<a href="#down"><i class="fas fa-angle-down fa-3x"></i></a>
+			<a href="#down" aria-label="Flêche vers le bas" ><i class="fas fa-angle-down fa-3x"></i></a>
 		</div>
 
 	</header>
 	<!-- section recevant la dernière publication -->
-	<section>
+	<section role="main">
 		<div class="card text-center">
 			<?php
 	        foreach( $data['projects'] as $key => $project ) :
@@ -41,22 +41,22 @@
 		    <h2>Dernière publication</h2>
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title"><?= $project['title'] ?></h5>
+		    <h3 class="card-title"><?= $project['title'] ?></h3>
 		    <p class="card-text"><?= $project['resume'] ?></p>
 		    <a href="/read/blog/<?= $project['id']; ?>" class="btn btn-primary"><i class="fas fa-book-open"></i> Lire</a>
 		  </div>
-		  <div class="card-footer text-muted">
-		    Le <?= $project['created_at'] ?>
+		  <div class="card-footer">
+		    <b>Le <?= $project['created_at'] ?></b>
 		  </div>
 		<?php endforeach;?>
 		</div>
 		
-	</section>
+	</section role="complementary">
 	<section id="paysage">
 		<div class="wrapper">
 			<div class="content">
-				<h2 class="h1" >"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."</h2>
-				<p class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></p>
+				<h2 class="h1" role="complementary">"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."</h2>
+				<p class="blockquote-footer" role="complementary">Someone famous in <cite title="Source Title">Source Title</cite></p>
 			</div>
 		</div>
 	</section>
