@@ -21,7 +21,7 @@
 		<div class="wrapper">
 			<div class="content">
 				<h1>"Billet simple pour l'Alaska"</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique doloremque autem magni !</p>
+				<p>Un roman de Jean Forteroche !</p>
 			</div>
 		</div>
 		<!-- Flêche avec effet smoothScroll -->
@@ -55,8 +55,8 @@
 	<section id="paysage">
 		<div class="wrapper">
 			<div class="content">
-				<h2 class="h1" role="complementary">"Lorem ipsum dolor sit amet, consectetur adipisicing elit..."</h2>
-				<p class="blockquote-footer" role="complementary">Someone famous in <cite title="Source Title">Source Title</cite></p>
+				<h2 class="h1" role="complementary">"Découvrez une autre façon de lire et d'apprécier un roman..."</h2>
+				<p class="blockquote-footer" role="complementary">Chapitre par chapitre... <cite title="Source Title">Jean F.</cite></p>
 			</div>
 		</div>
 	</section>

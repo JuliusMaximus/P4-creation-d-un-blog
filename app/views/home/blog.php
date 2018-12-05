@@ -17,8 +17,10 @@
       <!-- Photo pleine page -->
       <div class="wrapper">
         <div class="content">
-          <h1>Le Blog</h1>
-          <p>"Billet simple pour l'Alaska"</p>
+          <div class="text-content">
+            <h1>Le Blog</h1>
+            <p>"Toujours aussi proche de ses lecteurs et à leur écoute, Jean Forteroche a décidé cette année de publier son livre directement en ligne, en offrant à ses fans un nouveau chapitre par semaine. Ne manquez donc pas le fil des aventures de ses personnages, et plongez dès à présent dans le monde du mystère et des découvertes !"</p>
+          </div>
         </div>
       </div>
       <!-- Flèche avec effet smoothScroll -->

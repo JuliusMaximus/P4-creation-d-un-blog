@@ -35,7 +35,12 @@ header {
   .content h1 {
     font-size: 3rem; }
   .content p {
-    font-size: .85rem; }
+    font-size: 1.5rem;
+    padding: 3rem;
+    font-weight: 500; }
+
+.text-content {
+  background: rgba(0, 0, 0, 0.7); }
 
 .drop-down {
   /* fleche du bas */

@@ -31,30 +31,29 @@
 
 	</header>
 	<section role="main">
-		<h2>Non est enim vitium in oratione solum, sed etiam in moribus.</h2>
+		<h2>Jean Forteroche</h2>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duo Reges: constructio interrete. Nam ista vestra: Si gravis, brevis; Propter nos enim illam, non propter eam nosmet ipsos diligimus. Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Hoc loco tenere se Triarius non potuit. Quis est tam dissimile homini. </p>
+		<p>Je suis né le 6 juillet 1972 dans le 14e arrondissement de Paris, écrivain français, qui a obtenu le prix Goncourt des lycéens et le prix des libraires avec La Mort du roi Tsongor en 2003, puis le prix Goncourt pour mon roman Le Soleil des Scorta, en 2004.  </p>
+		
+		<h3>Biographie</h3>
 
+		<p>Il a étudié à l'École alsacienne2. Après une maîtrise de lettres à l'Université Paris III3, pour laquelle il a soutenu un mémoire intitulé "Le thème du combat dans la dramaturgie contemporaine française", sous la direction de Michel Corvin (1994), puis un DEA à la même université, pour lequel il a soutenu un mémoire intitulé Le conflit dans le théâtre contemporain, sous la direction de Jean-Pierre Sarrazac (1998), Laurent Gaudé écrit pour la scène (1999).
+		Sa première pièce, intitulée Combat de possédés, paraît en 1999. Elle sera jouée en Allemagne et lue au Royal National Theatre de Londres3. La seconde pièce de Laurent Gaudé, publiée en 2000, est Onysos le Furieux. Il s'agit d'un monologue épique4, écrit en seulement 10 jours au printemps 19964. Laurent Gaudé a aussi écrit d'autres pièces de théâtre dont Pluie de Cendres, Cendres sur les mains, Médée Kali, ou encore Le Tigre bleu de l'Euphrate.
+		En 2002, La Mort du roi Tsongor, son deuxième roman, lui vaut d'être cité pour le prix Goncourt et surtout d'être récompensé par le prix Goncourt des lycéens1 et le prix des libraires3. Deux ans plus tard, il remporte le prix Goncourt ainsi que le prix du jury Jean-Giono avec son roman Le Soleil des Scorta qui sera également un succès de librairie (80 000 exemplaires vendus entre la parution du roman et l'attribution du prix Goncourt en 20041). </p>
+
+		<h3>Mes romans</h3>
 		<dl>
-			<dt><dfn>Tria genera bonorum;</dfn></dt>
-			<dd>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest.</dd>
-			<dt><dfn>Quae sequuntur igitur?</dfn></dt>
-			<dd>Ut in geometria, prima si dederis, danda sunt omnia.</dd>
-			<dt><dfn>Quis negat?</dfn></dt>
-			<dd>Nam si beatus umquam fuisset, beatam vitam usque ad illum a Cyro extructum rogum pertulisset.</dd>
-			<dt><dfn>Quis enim redargueret?</dfn></dt>
-			<dd>Quorum altera prosunt, nocent altera.</dd>
-			<dt><dfn>Beatum, inquit.</dfn></dt>
-			<dd>Quia, si mala sunt, is, qui erit in iis, beatus non erit.</dd>
+			<dt><dfn>La Mort du roi Tsongor,</dfn></dt>
+			<dd>Actes Sud, 2002</dd>
+			<dt><dfn>Le Soleil des Scorta,</dfn></dt>
+			<dd>Actes Sud, 2004</dd>
+			<dt><dfn>La Porte des Enfers,</dfn></dt>
+			<dd>Actes Sud, 2008</dd>
+			<dt><dfn>Pour seul cortège,</dfn></dt>
+			<dd>Actes Sud, 2012</dd>
+			<dt><dfn>Écoutez nos défaites,</dfn></dt>
+			<dd>Actes Sud, 2016</dd>
 		</dl>
-
-
-		<h2>Istam voluptatem, inquit, Epicurus ignorat?</h2>
-
-		<p>Nulla profecto est, quin suam vim retineat a primo ad extremum. Quorum altera prosunt, nocent altera. O magnam vim ingenii causamque iustam, cur nova existeret disciplina! Perge porro. Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur. Bonum valitudo: miser morbus. Videamus animi partes, quarum est conspectus illustrior; Pauca mutat vel plura sane; Si quicquam extra virtutem habeatur in bonis. Nihil minus, contraque illa hereditate dives ob eamque rem laetus. Quod eo liquidius faciet, si perspexerit rerum inter eas verborumne sit controversia. </p>
-
-		<p>Nos commodius agimus. In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret. At, si voluptas esset bonum, desideraret. Mihi quidem Antiochum, quem audis, satis belle videris attendere. Conferam tecum, quam cuique verso rem subicias; Aliter homines, aliter philosophos loqui putas oportere? Unum nescio, quo modo possit, si luxuriosus sit, finitas cupiditates habere. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. </p>
-
 
 	</section>
 	<hr>
